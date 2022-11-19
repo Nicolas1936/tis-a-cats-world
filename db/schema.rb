@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_102709) do
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
+    t.string "breed"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_102709) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "organisation"
+    t.boolean "is_org"
     t.text "address"
     t.text "description"
     t.string "org_name"
