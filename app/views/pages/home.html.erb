@@ -1,3 +1,13 @@
 <h1>Pages#home</h1>
 <h2>Welcome to the tis a cats world!!!</h2>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= cl_image_tag("icntwmnkrak5rmphxxrc",
+      width: 400, height: 300, crop: :fill) %>
+
+<hr>
+<% @cats.each do |cat| %>
+  <%= cl_image_tag cat.photo.key, height: 300, width: 400, crop: :fill %>
+  <p><%= cat.photo.key %></p>
+  <hr>
+<% end %>
