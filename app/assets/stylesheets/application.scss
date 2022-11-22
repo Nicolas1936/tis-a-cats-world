@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/cards";
+
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto !important;
+}
