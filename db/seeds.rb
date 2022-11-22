@@ -1,10 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+# cat2 = Cat.new(name: "Felix",
+#                breed: "Abyssinian",
+#                description: "Beautifull cat",
+#                user: User.first)
+
+# photo1 = {
+#   filename: "cat1.jpg",
+#   io: URI.open("https://images.unsplash.com/photo-1546445317-29f4545e9d53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2257&q=80")
+# }
+
+# photo2 = {
+#   filename: "cat2.jpg",
+#   io: URI.open("https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80")
+# }
+
+# # cat2.photos.attach(photo1)
+# cat2.photos.attach([photo1, photo2])
+
+# cat2.save!
+
+# p cat2.photos
+
+# cat2.photos.each do |photo|
+#   p photo.key
+# end
+
+# Cat.last.photos.each do |photo|
+#   p photo.key
+# end
+
 puts "Cleaning DB ..."
 User.destroy_all
 Cat.destroy_all
@@ -121,27 +145,27 @@ cat6 = [
 ]
 
 cats_images = [
-  cat1.first,
-  cat2.first,
-  cat3.first,
-  cat4.first,
-  cat5.first,
-  cat6.first,
-  "https://images.unsplash.com/photo-1548366086-7f1b76106622?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=976&q=80",
-  "https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
-  "https://images.unsplash.com/photo-1583795128727-6ec3642408f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1657&q=80",
-  "https://images.unsplash.com/photo-1548546738-8509cb246ed3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+  cat1,
+  cat2,
+  cat3,
+  cat4,
+  cat5,
+  cat6,
+  ["https://images.unsplash.com/photo-1548366086-7f1b76106622?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=976&q=80"],
+  ["https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80"],
+  ["https://images.unsplash.com/photo-1583795128727-6ec3642408f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1657&q=80"],
+  ["https://images.unsplash.com/photo-1548546738-8509cb246ed3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"]
 ]
 
 # cats_images.each_with_index do |item, index|
 #   puts "#{index} : #{item}"
 # end
 
-puts "aaaaaaaa #{cat1.first}"
+# puts "aaaaaaaa #{cat1.first}"
 
 
 num_cats = 10
-cats_images.each_with_index do |cat_image, index|
+cats_images.each_with_index do |cat_images, index|
 # num_cats.times do
   cat = {
     name: Faker::Creature::Cat.name,
@@ -150,10 +174,21 @@ cats_images.each_with_index do |cat_image, index|
     user: org_obj.sample
   }
   cat_new = Cat.new(cat)
-  cat_new.photo.attach(
-  filename: "cat#{index}.jpg",
-  io: URI.open(cat_image)
-)
+
+  if cat_images.kind_of?(Array)
+    cat_images.each_with_index do |cat_image, i|
+      cat_new.photos.attach(
+        filename: "cat#{index}_#{i}.jpg",
+        io: URI.open(cat_image)
+      )
+    end
+  else
+    cat_new.photos.attach(
+    filename: "cat#{index}.jpg",
+    io: URI.open(cat_images)
+  )
+  end
+
   cat_new.save!
 
   puts "Cat (#{cat_new.name}) created"
