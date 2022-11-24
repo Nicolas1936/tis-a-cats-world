@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :cats do
     collection do
-      get :top
+      get :home
     end
   end
 

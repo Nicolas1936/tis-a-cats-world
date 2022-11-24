@@ -1,9 +1,7 @@
 class CatsController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
-  end
-
-  def top
-    @cats = Cat.take(5)
+    @cats = Cat.all
   end
 
   def new
