@@ -1,34 +1,4 @@
 
-# cat2 = Cat.new(name: "Felix",
-#                breed: "Abyssinian",
-#                description: "Beautifull cat",
-#                user: User.first)
-
-# photo1 = {
-#   filename: "cat1.jpg",
-#   io: URI.open("https://images.unsplash.com/photo-1546445317-29f4545e9d53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2257&q=80")
-# }
-
-# photo2 = {
-#   filename: "cat2.jpg",
-#   io: URI.open("https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80")
-# }
-
-# # cat2.photos.attach(photo1)
-# cat2.photos.attach([photo1, photo2])
-
-# cat2.save!
-
-# p cat2.photos
-
-# cat2.photos.each do |photo|
-#   p photo.key
-# end
-
-# Cat.last.photos.each do |photo|
-#   p photo.key
-# end
-
 puts "Cleaning DB ..."
 User.destroy_all
 Cat.destroy_all
