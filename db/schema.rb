@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_175739) do
     t.boolean "is_neutered", default: false
     t.integer "estimated_age"
     t.string "gender"
+    t.string "location"
     t.string "coat_colour"
     t.index ["user_id"], name: "index_cats_on_user_id"
   end

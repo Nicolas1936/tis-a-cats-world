@@ -141,7 +141,12 @@ cats_images.each_with_index do |cat_images, index|
     name: Faker::Creature::Cat.name,
     breed: Faker::Creature::Cat.breed,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
-    user: org_obj.sample
+    user: org_obj.sample,
+    location: "brussels, belgium",
+    is_vaccinated: ['true', 'false'].sample,
+    is_neutered: ['true', 'false'].sample,
+    gender: ['male', 'female'].sample,
+    coat_colour: Faker::Color.color_name
   }
   cat_new = Cat.new(cat)
 

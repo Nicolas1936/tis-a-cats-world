@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+
+    <div class="card-individual-cat">
+      <%= cl_image_tag @cat.photos.first.key %>
+      <div class="cat-details">
+        <div class="card-individual-cow-infos">
+          <div>
+            <h2 class="text-uppercase fw-bolder"><%= @cat.name %></h2>
+            <p><%= @cat.breed %></p>
+            <p><%= @cat.estimated_age %></p>
+            <p><%= @cat.coat_colour %></p>
+            <p><%= @cat.is_vaccinated? ? "Yes" : "no" %></p>
+            <p><%= @cat.is_neutered? ? "Yes" : "no"  %></p>
+            <p><%= @cat.gender %></p>
+            <p><%= @cat.location %></p>
+            <p><%= @cat.description %></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
