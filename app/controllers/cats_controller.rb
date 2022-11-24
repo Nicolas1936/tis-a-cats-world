@@ -1,14 +1,7 @@
 class CatsController < ApplicationController
-<<<<<<< HEAD
-  skip_before_action :authenticate_user!
+skip_before_action :authenticate_user!
   def index
     @cats = Cat.all
-=======
-  def index
-  end
-
-  def top
-    @cats = Cat.take(5)
   end
 
   def new
@@ -27,6 +20,5 @@ class CatsController < ApplicationController
                                 :breed,
                                 # :location,
                                 :photo)
->>>>>>> a4d8937f8f181ce754cad3c8af1bea8735ce6777
   end
 end
