@@ -143,10 +143,12 @@ cats_images.each_with_index do |cat_images, index|
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     user: org_obj.sample,
     location: "brussels, belgium",
-    is_vaccinated: ['true', 'false'].sample,
-    is_neutered: ['true', 'false'].sample,
+    is_vaccinated: [true, false].sample,
+    is_neutered: [true, false],
+    is_adopted: false,
+    adoption_date: nil,
     gender: ['male', 'female'].sample,
-    coat_colour: Faker::Color.color_name
+    coat_colour: Faker::Color.color_name,
   }
   cat_new = Cat.new(cat)
 
