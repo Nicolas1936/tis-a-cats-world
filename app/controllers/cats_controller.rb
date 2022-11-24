@@ -16,7 +16,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     @cat.user_id = current_user.id
     if @cat.save
-      redirect_to root_path
+      redirect_to cats_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,14 @@ class CatsController < ApplicationController
     params.require(:cat).permit(:name,
                                 :description,
                                 :breed,
-                                # :location,
+                                :location,
+                                :is_vaccinated,
+                                :is_neutered,
+                                :is_adopted,
+                                :estimated_age,
+                                :adoption_date,
+                                :gender,
+                                :coat_colour,
                                 photos: [])
   end
 end
