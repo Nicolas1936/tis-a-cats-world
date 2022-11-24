@@ -22,7 +22,7 @@ class CatsController < ApplicationController
     params.require(:cat).permit(:name,
                                 :description,
                                 :breed,
-                                # :location,
+                                :location,
                                 :photo)
   end
 end
