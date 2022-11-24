@@ -1,7 +1,10 @@
-<div class="container">
-  <h1>'TIS A CAT'S WORLD</h1>
-  <h2>Find your new best friend!</h2>
+<div class="homepage-banner">
+    <h1>'TIS A CAT'S WORLD</h1>
+    <h2>Find your new best friend!</h2>
+    <p>The first crowdfunding adoption platform: search for cats in need around you, find a pet to foster or adopt, connect with organizations or add to our database!</p>
+</div>
 
+<div class="container">
   <div class="cards">
       <% @cats.each do |cat| %>
         <%= render "cats/cat", cat: cat %>

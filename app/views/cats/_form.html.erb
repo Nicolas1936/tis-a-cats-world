@@ -11,7 +11,14 @@
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :breed %>
-      <%# <%= f.input :location %>
+      <%= f.input :location %>
+      <%= f.input :is_vaccinated %>
+      <%= f.input :is_neutered %>
+      <%= f.input :is_adopted %>
+      <%= f.input :estimated_age %>
+      <%= f.input :adoption_date, as: :date, html5: true %>
+      <%= f.input :gender %>
+      <%= f.input :coat_colour %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 </div>
 
