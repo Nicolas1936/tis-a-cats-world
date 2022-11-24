@@ -1,13 +1,10 @@
-<div class="wrapper">
+<div class="container">
   <h1>'TIS A CAT'S WORLD</h1>
   <h2>Find your new best friend!</h2>
 
   <div class="cards">
-    <div class="cat-card">
       <% @cats.each do |cat| %>
-        <%= cl_image_tag cat.photo.key, height: 300, width: 400, crop: :fill %>
-        <p><%= cat.photo.key %></p>
+        <%= render "cats/cat", cat: cat %>
       <% end %>
-    </div>
   </div>
 </div>

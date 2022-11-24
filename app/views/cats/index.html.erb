@@ -1,0 +1,12 @@
+<h1>All the cats</h1>
+
+
+  <div class="page-content">
+    <div class="cards">
+      <div class="cat-card">
+        <% @cats.each do |cat| %>
+          <%= render "cats/cat", cat: cat %>
+        <% end %>
+      </div>
+    </div>
+  </div>
