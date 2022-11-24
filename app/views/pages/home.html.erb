@@ -6,6 +6,13 @@
       <% @cats.each do |cat| %>
         <%= render "cats/cat", cat: cat %>
       <% end %>
-      <h1>all cats</h1>
+
+      <div class="cat-card-button">
+        <%= link_to cats_path do %>
+          <i class="fa-solid fa-paw button-paw"></i>
+          <p>xxx pets available for adoption on our website</p>
+          <h5>VIEW ALL PETS</h5>
+        <% end %>
+      </div>
   </div>
 </div>
