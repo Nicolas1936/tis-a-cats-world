@@ -15,7 +15,12 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cat_params)
     @cat.user_id = current_user.id
-    @cat.save
+    if @cat.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   end
 
   def cat_params
@@ -23,6 +28,6 @@ class CatsController < ApplicationController
                                 :description,
                                 :breed,
                                 # :location,
-                                :photo)
+                                photos: [])
   end
 end
