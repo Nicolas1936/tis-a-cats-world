@@ -1,9 +1,12 @@
 
 
 <div class ="cat-card">
-  <%= cl_image_tag cat.photos.first.key, height: 300, width: 400, crop: :fill %>
-  <h2><%= cat.name %></h2>
-  <p><%= cat.breed %></p>
-  <p><%= cat.description %></p>
-  <%= link_to "The cat", cat_path(cat) %>
+  <%= link_to cat_path(cat) do %>
+    <%= cl_image_tag cat.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <div class="cat-card-infos">
+      <h3><%= cat.name.upcase %></h3>
+      <p><strong><%= cat.breed %></strong></p>
+      <p><%= cat.description %></p>
+    </div>
+  <% end %>
 </div>

@@ -23,3 +23,15 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
+
+a {
+  text-decoration: none;
+}
+
+body {
+  color: $dark-grey;
+}
+
+h1 {
+  font-weight: 700;
+}
