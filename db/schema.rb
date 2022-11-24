@@ -51,10 +51,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_175739) do
     t.bigint "user_id", null: false
     t.boolean "is_vaccinated", default: false
     t.boolean "is_neutered", default: false
+    t.boolean "is_adopted", default: false
     t.integer "estimated_age"
     t.string "gender"
     t.string "location"
     t.string "coat_colour"
+    t.date "adoption_date"
     t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
