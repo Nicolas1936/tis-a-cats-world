@@ -6,8 +6,8 @@ class Cat < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
 
-  validates :name, presence: true, length: { in: 3..15 }
-  validates :description, presence: true, length: { in: 3..50 }
+  # validates :name, presence: true, length: { in: 3..15 }
+  # validates :description, presence: true, length: { in: 3..500 }
   validates :breed, presence: true, inclusion: { in: cats_infos["breed"] }
   validates :location, presence: true
   # validates :is_vaccinated, presence: true
