@@ -127,12 +127,9 @@ cats_images = [
   ["https://images.unsplash.com/photo-1548546738-8509cb246ed3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"]
 ]
 
-# cats_images.each_with_index do |item, index|
-#   puts "#{index} : #{item}"
-# end
-
-# puts "aaaaaaaa #{cat1.first}"
-
+filepath = "lib/json/cats_infos.json"
+serialized_cats_infos = File.read(filepath)
+cats_infos = JSON.parse(serialized_cats_infos)
 
 num_cats = 10
 cats_images.each_with_index do |cat_images, index|
@@ -153,7 +150,7 @@ cats_images.each_with_index do |cat_images, index|
     ),
     estimated_age: (1..15).to_a.sample,
     gender: ['male', 'female'].sample,
-    coat_colour: Faker::Color.color_name
+    coat_colour: cats_infos["coat_colour"].sample
   }
   cat_new = Cat.new(cat)
 
