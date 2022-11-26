@@ -3,11 +3,14 @@ class Cat < ApplicationRecord
   serialized_cats_infos = File.read(filepath)
   cats_infos = JSON.parse(serialized_cats_infos)
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   belongs_to :user
   has_many_attached :photos
 
-  validates :name, presence: true, length: { in: 3..15 }
-  validates :description, presence: true, length: { in: 3..50 }
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :description, presence: true, length: { minimum: 3 }
   validates :breed, presence: true, inclusion: { in: cats_infos["breed"] }
   validates :location, presence: true
   # validates :is_vaccinated, presence: true
