@@ -41,9 +41,9 @@ array_users = [
 
 array_orgs = [
   {
-    first_name: "Victoria",
-    last_name: "Torelli",
-    email: "vic@lewagon.com",
+    first_name: "",
+    last_name: "",
+    email: "thelonewhisker@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "The Lone Whisker",
@@ -53,14 +53,14 @@ array_orgs = [
   },
 
   {
-    first_name: "Tara",
-    last_name: "Karimi",
-    email: "tara@lewagon.com",
+    first_name: " ",
+    last_name: " ",
+    email: "sassytails@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "Sassy Tails",
     address: "Winter Springs, FL, USA",
-    description: "Sassy Tails prefers to work with families who are open to adopt senior cat and give their last years a loving ending"
+    description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years"
   }
 ]
 array_users.each do |user|
