@@ -19,6 +19,10 @@
   width: 40px;
 }
 
+.nav-item .dropdown {
+  border: 1px solid red;
+}
+
 .dropdown-menu {
   background-color: $purple;
 }
