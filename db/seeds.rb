@@ -146,9 +146,14 @@ cats_images.each_with_index do |cat_images, index|
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false],
     is_adopted: false,
-    adoption_date: nil,
+    adoption_date: DateTime.new(
+                      (2019..2022).to_a.sample,
+                      (1..10).to_a.sample,
+                      (1..28).to_a.sample
+    ),
+    estimated_age: (1..15).to_a.sample,
     gender: ['male', 'female'].sample,
-    coat_colour: Faker::Color.color_name,
+    coat_colour: Faker::Color.color_name
   }
   cat_new = Cat.new(cat)
 
