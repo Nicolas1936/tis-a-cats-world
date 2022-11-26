@@ -14,6 +14,9 @@
 @import "pages/_cat_show";
 
 
+// Import external livraries
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
 
 .container {
   max-width: 1200px;
