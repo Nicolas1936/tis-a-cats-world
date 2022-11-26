@@ -59,17 +59,19 @@
           </div>
 
           <div class="org-info">
-            <h2><%= @cat.user.org_name %></h2>
-            <hr>
-            <div class="cat-show-org-details">
-              <i class="fa-solid fa-location-dot"></i>
-              <%= @cat.user.address %>
-            </div>
+            <%= link_to user_path(@cat.user) do %>
+              <h2><%= @cat.user.org_name %></h2>
+              <hr>
+              <div class="cat-show-org-details">
+                <i class="fa-solid fa-location-dot"></i>
+                <%= @cat.user.address %>
+              </div>
 
-            <div class="cat-show-org-details">
-              <i class="fa-solid fa-envelope"></i>
-              <%= @cat.user.email %>
-            </div>
+              <div class="cat-show-org-details">
+                <i class="fa-solid fa-envelope"></i>
+                <%= @cat.user.email %>
+              </div>
+            <% end %>
           </div>
         </div>
 

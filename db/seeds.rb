@@ -61,6 +61,16 @@ array_orgs = [
     org_name: "Sassy Tails",
     address: "Winter Springs, FL, USA",
     description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years"
+  },
+  {
+    first_name: "Rishabh",
+    last_name: "'Arrow' Agnihotri",
+    email: "agnihotri@lewagon.com",
+    password: "lewagon",
+    is_org: true,
+    org_name: "Meows and Moos",
+    address: "New Delhi",
+    description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons."
   }
 ]
 array_users.each do |user|
