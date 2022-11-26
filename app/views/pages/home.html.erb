@@ -14,7 +14,7 @@
       <div class="cat-card-button">
         <%= link_to cats_path do %>
           <i class="fa-solid fa-paw button-paw"></i>
-          <p>xxx pets available for adoption on our website</p>
+          <p><%= @cats.count %> pets available for adoption on our website</p>
           <h5>VIEW ALL PETS</h5>
         <% end %>
       </div>

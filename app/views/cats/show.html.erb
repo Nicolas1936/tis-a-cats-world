@@ -3,23 +3,21 @@
     <div class="cat-show-page">
 
       <div class="cat-photo-carousel">
-        <div id="cat-carousel" class="carousel slide" data-bs-interval="10000" data-bs-ride="carousel">
+        <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <%= cl_image_tag @cat.photos.first.key %>
-            </div>
-            <div class="carousel-item">
-              <%= cl_image_tag @cat.photos.first.key %>
-            </div>
-            <div class="carousel-item">
-              <%= cl_image_tag @cat.photos.first.key %>
-            </div>
+            <% @cat.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% end %>
           </div>
+
           <button class="carousel-control-prev" type="button" data-bs-target="#cat-carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -37,6 +35,11 @@
           <div class="cat-details">
             <h2><%= @cat.name %></h2>
             <p><%= @cat.breed %>, <%= @cat.gender %></p>
+
+            <% if @cat.is_adopted? %>
+              <strong><h6>ADOPTED</h6></strong>
+            <% end %>
+
             <hr>
             <h5>Health</h4>
             <p>Estimated age: <%= @cat.estimated_age %></p>
