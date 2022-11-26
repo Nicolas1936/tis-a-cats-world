@@ -1,25 +1,81 @@
 <div class="wrapper">
-  <div class="container">
+  <div class="cat-page-container">
+    <div class="cat-show-page">
 
-    <div class="card-individual-cat">
-      <%= cl_image_tag @cat.photos.first.key %>
-      <div class="cat-details">
-        <div class="card-individual-cow-infos">
-          <div>
-            <h2 class="text-uppercase fw-bolder"><%= @cat.name %></h2>
-            <p><%= @cat.breed %></p>
-            <p><%= @cat.estimated_age %></p>
-            <p><%= @cat.coat_colour %></p>
-            <p><%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
-            <p><%= @cat.is_neutered? ? "Yes" : "No"  %></p>
-            <p><%= @cat.is_adopted? ? "Yes" : "No"  %></p>
-            <p><%= @cat.adoption_date  %></p>
-            <p><%= @cat.gender %></p>
+      <div class="cat-photo-carousel">
+        <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <% @cat.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% end %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#cat-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#cat-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cat-info">
+
+        <div class="left-info">
+          <div class="cat-details">
+            <h2><%= @cat.name %></h2>
+            <p><%= @cat.breed %>, <%= @cat.gender %></p>
+
+            <% if @cat.is_adopted? %>
+              <strong><h6>ADOPTED</h6></strong>
+            <% end %>
+
+            <hr>
+            <h5>Health</h4>
+            <p>Estimated age: <%= @cat.estimated_age %></p>
+            <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
+            <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
+            <hr>
             <p><%= @cat.location %></p>
             <p><%= @cat.description %></p>
           </div>
+
+          <div class="map"></div>
         </div>
+
+        <div class="right-info">
+          <div class="adoption-info">
+            <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
+          </div>
+
+          <div class="org-info">
+            <h2><%= @cat.user.org_name %></h2>
+            <hr>
+            <div class="cat-show-org-details">
+              <i class="fa-solid fa-location-dot"></i>
+              <%= @cat.user.address %>
+            </div>
+
+            <div class="cat-show-org-details">
+              <i class="fa-solid fa-envelope"></i>
+              <%= @cat.user.email %>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+
 
     </div>
   </div>

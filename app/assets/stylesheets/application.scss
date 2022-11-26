@@ -9,15 +9,17 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
 @import "components/cards";
+@import "pages/index";
+@import "pages/_cat_show";
+
 
 // Import external livraries
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 
 .container {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto !important;
 }
 
