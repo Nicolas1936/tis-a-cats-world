@@ -20,8 +20,9 @@ class CatsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
+
+  private
 
   def cat_params
     params.require(:cat).permit(:name,

@@ -19,6 +19,7 @@
         <%= f.input :first_name, required: true %>
         <%= f.input :last_name, required: true %>
         <%= f.input :address, required: true %>
+        <%= f.input :photo, as: :file, input_html: {multiple: false} %>
     </div>
     <div class="org" data-controller="signup">
       <%= f.input :is_org,
