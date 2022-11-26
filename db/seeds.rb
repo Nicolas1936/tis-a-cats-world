@@ -136,7 +136,7 @@ cats_images.each_with_index do |cat_images, index|
 # num_cats.times do
   cat = {
     name: Faker::Creature::Cat.name,
-    breed: Faker::Creature::Cat.breed,
+    breed: cats_infos["breed"].sample,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     user: org_obj.sample,
     location: "brussels, belgium",
