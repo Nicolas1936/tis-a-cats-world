@@ -10,20 +10,20 @@ class CatsController < ApplicationController
     @cats = Cat.all
   end
 
+  def show
+    @cat = Cat.find(params[:id])
+  end
+
   def new
     @cat = Cat.new
     redirect_to new_user_session_path if !current_user || !current_user.is_org
-  end
-
-  def show
-    @cat = Cat.find(params[:id])
   end
 
   def create
     @cat = Cat.new(cat_params)
     @cat.user = current_user
     if @cat.save
-      redirect_to cats_path
+      redirect_to cats_my_cats_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -48,6 +48,13 @@ class CatsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @cat = Cat.find(params[:id])
+    # cat_authorization(@cat)
+    @cat.destroy
+    redirect_to cats_my_cats_path, status: :see_other
   end
 
   private
