@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "cats/my_cats", to: "cats#my_cats"
   resources :cats do
     collection do
       get :home
@@ -9,8 +10,4 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

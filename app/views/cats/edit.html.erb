@@ -1,11 +1,3 @@
-
-
-
-<%= simple_form_for(@cat) do |f| %>
-          <%= f.input :name  %>
-          <%= f.input :description  %>
-          <%= f.input :breed %>
-          <%# <%= f.input :location  %> %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit %>
-<%= end %>
+<br>
+<%= render "form", cat: @cat %>
+<br>

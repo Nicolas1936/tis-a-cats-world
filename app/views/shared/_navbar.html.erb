@@ -10,6 +10,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+          <% if user_signed_in? && current_user.is_org %>
+            <li class="nav-item active">
+              <%= link_to "view my cat", cats_my_cats_path, class: "nav-link" %>
+            </li>
+
+            <li class="nav-item active">
+              <%= link_to "add a new cat", new_cat_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item active">
             <%= link_to "what we do", cats_path, class: "nav-link" %>
           </li>

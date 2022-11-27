@@ -2,7 +2,7 @@
 <% serialized_cats_infos = File.read(filepath) %>
 <% cats_infos = JSON.parse(serialized_cats_infos) %>
 
-<div class="container mt-5">
+<div class="container">
   <h2>Add a Cat</h2>
     <%= simple_form_for(cat) do |f| %>
     <div class="card">
@@ -30,6 +30,7 @@
 </div>
 
 <div class="form-actions">
+
     <%= f.button :submit, class: "purple-button" %>
   </div>
   </div>
