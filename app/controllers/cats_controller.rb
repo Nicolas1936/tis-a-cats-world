@@ -22,6 +22,9 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cat_params)
     @cat.user = current_user
+
+    cats_authorization(@cat)
+
     if @cat.save
       redirect_to cats_my_cats_path
     else
@@ -52,7 +55,7 @@ class CatsController < ApplicationController
 
   def destroy
     @cat = Cat.find(params[:id])
-    # cat_authorization(@cat)
+    cats_authorization(@cat)
     @cat.destroy
     redirect_to cats_my_cats_path, status: :see_other
   end
