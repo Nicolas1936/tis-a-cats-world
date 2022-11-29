@@ -148,7 +148,7 @@ cats_images.each_with_index do |cat_images, index|
     name: Faker::Creature::Cat.name,
     breed: cats_infos["breed"].sample,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
-    user: org_obj.sample,
+    user: User.where(is_org: true).sample,
     location: "brussels, belgium",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false],
