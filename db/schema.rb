@@ -57,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_113124) do
     t.string "location"
     t.string "coat_colour"
     t.date "adoption_date"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
@@ -91,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_113124) do
     t.text "description"
     t.string "org_name"
     t.string "nickname"
+    t.string "org_phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

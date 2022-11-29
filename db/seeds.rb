@@ -41,9 +41,9 @@ array_users = [
 
 array_orgs = [
   {
-    first_name: "Victoria",
-    last_name: "Torelli",
-    email: "vic@lewagon.com",
+    first_name: "",
+    last_name: "",
+    email: "thelonewhisker@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "The Lone Whisker",
@@ -53,14 +53,24 @@ array_orgs = [
   },
 
   {
-    first_name: "Tara",
-    last_name: "Karimi",
-    email: "tara@lewagon.com",
+    first_name: " ",
+    last_name: " ",
+    email: "sassytails@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "Sassy Tails",
     address: "Winter Springs, FL, USA",
-    description: "Sassy Tails prefers to work with families who are open to adopt senior cat and give their last years a loving ending"
+    description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years"
+  },
+  {
+    first_name: "Rishabh",
+    last_name: "'Arrow' Agnihotri",
+    email: "agnihotri@lewagon.com",
+    password: "lewagon",
+    is_org: true,
+    org_name: "Meows and Moos",
+    address: "New Delhi",
+    description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons."
   }
 ]
 array_users.each do |user|
@@ -127,21 +137,18 @@ cats_images = [
   ["https://images.unsplash.com/photo-1548546738-8509cb246ed3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"]
 ]
 
-# cats_images.each_with_index do |item, index|
-#   puts "#{index} : #{item}"
-# end
-
-# puts "aaaaaaaa #{cat1.first}"
-
+filepath = "lib/json/cats_infos.json"
+serialized_cats_infos = File.read(filepath)
+cats_infos = JSON.parse(serialized_cats_infos)
 
 num_cats = 10
 cats_images.each_with_index do |cat_images, index|
 # num_cats.times do
   cat = {
     name: Faker::Creature::Cat.name,
-    breed: Faker::Creature::Cat.breed,
+    breed: cats_infos["breed"].sample,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
-    user: org_obj.sample,
+    user: User.where(is_org: true).sample,
     location: "brussels, belgium",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false],
@@ -153,7 +160,7 @@ cats_images.each_with_index do |cat_images, index|
     ),
     estimated_age: (1..15).to_a.sample,
     gender: ['male', 'female'].sample,
-    coat_colour: Faker::Color.color_name
+    coat_colour: cats_infos["coat_colour"].sample
   }
   cat_new = Cat.new(cat)
 
