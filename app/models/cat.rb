@@ -17,6 +17,14 @@ class Cat < ApplicationRecord
   validates :coat_colour, presence: true, inclusion: { in: cats_infos["coat_colour"] }
   validates :user_id, presence: true
 
+  include PgSearch::Model
+
+  pg_search_scope :search_cats,
+    against: [ :name, :breed, :description, :gender, :location, :coat_colour ],
+    associated_against: { user: [:org_name] },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   private
 
@@ -25,5 +33,4 @@ class Cat < ApplicationRecord
     serialized_cats_infos = File.read(filepath)
     @cats_infos = JSON.parse(serialized_cats_infos)
   end
-
 end
