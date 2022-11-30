@@ -7,7 +7,11 @@ class CatsController < ApplicationController
   end
 
   def index
-    @cats = Cat.all
+    if params[:query].present?
+      @cats = Cat.search_cats(params[:query])
+    else
+      @cats = Cat.all
+    end
   end
 
   def show
