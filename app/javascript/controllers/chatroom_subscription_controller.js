@@ -14,7 +14,6 @@ export default class extends Controller {
       this.messagesTarget.insertAdjacentHTML("beforeend", data)
       this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     }
-      { received: data => console.log(data) }
-    )
     console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
   }
+}
