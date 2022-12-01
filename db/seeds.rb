@@ -1,11 +1,10 @@
-
 puts "Cleaning DB ..."
 User.destroy_all
 Cat.destroy_all
 Chatroom.destroy_all
 Message.destroy_all
 puts " "
-puts "Database deleted successfully."
+puts "Database cleaned successfully."
 puts " "
 
 array_users = [
@@ -73,6 +72,11 @@ array_orgs = [
     description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons."
   }
 ]
+
+puts "------------------"
+puts "creating users"
+puts " "
+
 array_users.each do |user|
   user_new = User.create!(user)
 
@@ -141,6 +145,11 @@ filepath = "lib/json/cats_infos.json"
 serialized_cats_infos = File.read(filepath)
 cats_infos = JSON.parse(serialized_cats_infos)
 
+puts " "
+puts "--------------------"
+puts "creating cats"
+puts " "
+
 num_cats = 10
 cats_images.each_with_index do |cat_images, index|
 # num_cats.times do
@@ -151,7 +160,7 @@ cats_images.each_with_index do |cat_images, index|
     user: User.where(is_org: true).sample,
     location: "brussels, belgium",
     is_vaccinated: [true, false].sample,
-    is_neutered: [true, false],
+    is_neutered: [true, false].sample,
     is_adopted: false,
     adoption_date: DateTime.new(
                       (2019..2022).to_a.sample,
@@ -183,4 +192,7 @@ cats_images.each_with_index do |cat_images, index|
   puts "Cat (#{cat_new.name}) created"
 end
 
-puts "Seed end"
+puts " "
+puts "----------------------"
+puts "Populated database :)"
+puts "----------------------"
