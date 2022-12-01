@@ -1,4 +1,6 @@
 class Cat < ApplicationRecord
+  acts_as_favoritable
+
   filepath = "lib/json/cats_infos.json"
   serialized_cats_infos = File.read(filepath)
   cats_infos = JSON.parse(serialized_cats_infos)
@@ -19,7 +21,6 @@ class Cat < ApplicationRecord
   validates :gender, inclusion: { in: %w[male female], message: "must be male or female" }
   validates :coat_colour, presence: true, inclusion: { in: cats_infos["coat_colour"] }
   validates :user_id, presence: true
-
 
   private
 
