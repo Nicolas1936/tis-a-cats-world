@@ -8,24 +8,26 @@
       <% end %>
       </div>
 
-      <div data-controller="favorite">
-        <%= link_to toggle_favorite_cat_path(@cat), data: {turbo_method: :get, action: "click->favorite#changeStatutFavorite"} do %>
-            <% if current_user.favorited?(@cat) %>
-              <% solid = "" %>
-              <% regular = "d-none" %>
-            <% else %>
-              <% solid = "d-none" %>
-              <% regular = "" %>
-            <% end %>
-            <i class="fa-regular fa-heart <%= regular %>"
-               style="font-size:32px;color:red;"
-               data-favorite-target="regular"></i>
+      <% if user_signed_in?%>
+        <div data-controller="favorite">
+          <%= link_to toggle_favorite_cat_path(@cat), data: {turbo_method: :get, action: "click->favorite#changeStatutFavorite"} do %>
+              <% if current_user.favorited?(@cat) %>
+                <% solid = "" %>
+                <% regular = "d-none" %>
+              <% else %>
+                <% solid = "d-none" %>
+                <% regular = "" %>
+              <% end %>
+              <i class="fa-regular fa-heart <%= regular %>"
+                style="font-size:32px;color:red;"
+                data-favorite-target="regular"></i>
 
-            <i class="fa-solid fa-heart <%= solid %>"
-               style="font-size:32px;color:red;"
-               data-favorite-target="solid"></i>
-          <% end %>
-      </div>
+              <i class="fa-solid fa-heart <%= solid %>"
+                style="font-size:32px;color:red;"
+                data-favorite-target="solid"></i>
+            <% end %>
+        </div>
+      <% end %>
 
       <div class="cat-photo-carousel">
         <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
