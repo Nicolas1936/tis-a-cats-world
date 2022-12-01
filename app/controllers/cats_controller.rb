@@ -1,13 +1,27 @@
 class CatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :edit
 
+  def favorite
+    @cats = current_user.favorited_by_type('Cat')
+  end
+
+  def toggle_favorite
+    @cat = Cat.find_by(id: params[:id])
+    current_user.favorited?(@cat)  ? current_user.unfavorite(@cat) : current_user.favorite(@cat)
+
+    render json: {favorited?: current_user.favorited?(@cat)}
+  end
 
   def my_cats
     @cats = Cat.where(user: current_user)
   end
 
   def index
-    @cats = Cat.all
+    if params[:query].present?
+      @cats = Cat.search_cats(params[:query])
+    else
+      @cats = Cat.all
+    end
   end
 
   def show

@@ -1,0 +1,18 @@
+.search-bar {
+  width: 25%;
+  font-size: 16px;
+}
+#search-btn-homepage {
+  border-radius: 0  24px  24px  0;
+  border: none;
+  height: 40px;
+  width: 100px;
+  background-color: $pink;
+  color: $white;
+}
+.form-control {
+  border-radius: 24px 0 0 24px;
+  border: none;
+  font-size: 16px;
+  height: 40px;
+}

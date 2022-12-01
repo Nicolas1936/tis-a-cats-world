@@ -3,18 +3,30 @@
   <h1>'TIS A CAT'S WORLD</h1>
   <h3>find your new best friend!</h3>
   <p>search for cats in need around you, find a pet to foster or adopt, connect with organizations or add to our database!</p>
+  <div class="search-bar">
+    <div class="text-center">
+      <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "find a cat"
+        %>
+        <%= submit_tag "Search", id: "search-btn-homepage" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="container">
   <div class="cards">
-      <% @cats.each do |cat| %>
+      <% @last_cats.each do |cat| %>
         <%= render "cats/cat", cat: cat %>
       <% end %>
 
       <div class="cat-card-button">
         <%= link_to cats_path do %>
           <i class="fa-solid fa-paw button-paw"></i>
-          <p><%= @cats.count %> pets available for adoption on our website</p>
+          <p><%= @cats.count %> cats available for adoption on our website</p>
           <h5>VIEW ALL PETS</h5>
         <% end %>
       </div>

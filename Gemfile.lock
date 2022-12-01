@@ -6,6 +6,13 @@ GIT
       actionpack (>= 5.2)
       activemodel (>= 5.2)
 
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 7d55581c3624453210a0304e2c00de8a17779c0c
+  specs:
+    acts_as_favoritor (6.0.0)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -170,6 +177,9 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.4)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -277,6 +287,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_favoritor!
   autoprefixer-rails
   bootsnap
   capybara
@@ -291,6 +302,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
+  pg_search
   puma (~> 5.0)
   rails (~> 7.0.4)
   sassc-rails
