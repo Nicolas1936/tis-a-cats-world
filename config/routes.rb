@@ -4,14 +4,20 @@ Rails.application.routes.draw do
     collection do
       get :home
     end
+
+    member do
+      get 'toggle_favorite', to: "cats#toggle_favorite"
+    end
   end
 
   devise_for :users
+  get 'favorite', to: "cats#favorite"
+
   root to: "pages#home"
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-  
+
   resources :users
 end
