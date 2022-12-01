@@ -7,7 +7,11 @@
   <% @chatroom.messages.each do |message| %>
     <div id="message-<%= message.id %>">
       <small>
-        <strong><%= message.user.nickname %></strong>
+        <% if message.user.is_org %>
+          <strong><%= message.user.org_name %></strong>
+        <% else %>
+          <strong><%= message.user.first_name %></strong>
+        <% end %>
         <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
       </small>
       <p><%= message.content %></p>
@@ -16,7 +20,7 @@
 </div>
 <div>
   <%= simple_form_for [@chatroom, @message],
-  html: {class: "d-flex"} do |f| %>
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
     <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chatroom.name}",
