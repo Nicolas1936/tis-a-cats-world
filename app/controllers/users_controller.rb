@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
+    @cats = @user.cats
   end
 
   def edit
