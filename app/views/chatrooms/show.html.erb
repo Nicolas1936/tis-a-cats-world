@@ -2,6 +2,7 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
+  <%= link_to "Back", :back %>
   <h1>Organization : #<%= @chatroom.receiver.org_name %></h1>
   <div class="messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each do |message| %>
