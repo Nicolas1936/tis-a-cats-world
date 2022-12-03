@@ -1,25 +1,27 @@
-<div class="container">
-  <h2>Edit Form</h2>
-  <%= simple_form_for(@user) do |f| %>
-    <div class="form-inputs">
-    <div class="general">
-        <%= f.input :first_name, required: true %>
-        <%= f.input :last_name, required: true %>
-        <%= f.input :address, required: true %>
-        <%= f.input :photo, as: :file, input_html: {multiple: false} %>
-    </div>
-    <div class="org" data-controller="signup">
-      <% if @user.is_org? %>
-       <%= f.input :org_name, label: "Organisation Name" %>
-        <%= f.input :description, label: "Can you describe your org?"%>
-      <% end %>
+<div class="footer-positioning">
+  <div class="container">
+    <h2>Edit Form</h2>
+    <%= simple_form_for(@user) do |f| %>
+      <div class="form-inputs">
+      <div class="general">
+          <%= f.input :first_name, required: true %>
+          <%= f.input :last_name, required: true %>
+          <%= f.input :address, required: true %>
+          <%= f.input :photo, as: :file, input_html: {multiple: false} %>
+      </div>
+      <div class="org" data-controller="signup">
+        <% if @user.is_org? %>
+        <%= f.input :org_name, label: "Organisation Name" %>
+          <%= f.input :description, label: "Can you describe your org?"%>
+        <% end %>
 
-    </div>
+      </div>
 
-    </div>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: "purple-button" %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "purple-button" %>
+      </div>
+    <% end %>
+  </div>
 </div>

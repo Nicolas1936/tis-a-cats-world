@@ -1,0 +1,36 @@
+.footer {
+  padding-top: 8px;
+  background: $purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  font-size: 16px;
+  color: $white;
+  // color: rgba(0,0,0,0.3);
+  a {
+    color: $white;
+  }
+  a:hover {
+    color: #A8DADC;
+  }
+}
+.footer .fa-heart {
+    color: #f2b3ee;
+}
+.page-container {
+  display: grid;
+  min-height: 200vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.block-copyright {
+  color: #ddb4ff;
+  line-height: 12px;
+  padding-top: 4px;
+  padding-bottom: 16px;
+  text-align: center;
+  position: relative;
+  font-size: 12px;
+}

@@ -1,8 +1,10 @@
-<div class="container">
-  <h1>all the cats</h1>
-  <div class="cards">
-    <% @cats.each do |cat| %>
-      <%= render "cats/cat", cat: cat %>
-    <% end %>
+<div class="footer-positioning">
+  <div class="container">
+    <h1>all the cats</h1>
+    <div class="cards">
+      <% @cats.each do |cat| %>
+        <%= render "cats/cat", cat: cat %>
+      <% end %>
+    </div>
   </div>
 </div>
