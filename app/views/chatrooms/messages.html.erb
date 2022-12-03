@@ -1,0 +1,22 @@
+<div class="container">
+  <% if @is_org %>
+    <h1>Messages (<%= current_user.org_name %>)</h1>
+  <% else %>
+    <h1>Messages (<%= current_user.first_name %>)</h1>
+  <% end %>
+  <%= link_to "Back", root_path%>
+  <hr>
+  <% if @chatrooms_connected.any? %>
+    <% @chatrooms_connected.each do |chatroom| %>
+      <% if @is_org %>
+        <p>with <b><%= chatroom.asker.first_name %></b></p>
+      <% else %>
+        <p>with <b><%= chatroom.receiver.org_name %> Organization</b></p>
+      <% end %>
+      <p><%= link_to "View messages", chatroom_path(chatroom) %>&nbsp;&nbsp;<i class="fa-solid fa-message" style="font-size:32px;"></i></p>
+      <hr>
+    <% end %>
+  <% else %>
+    <h3>No messages</h3>
+  <% end %>
+</div>
