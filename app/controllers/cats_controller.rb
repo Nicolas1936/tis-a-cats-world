@@ -23,30 +23,11 @@ class CatsController < ApplicationController
       @cats = Cat.all
     end
 
-    @genders = []
-    @cats.each do |cat|
-      @genders << cat.gender
-    end
-
-    @breeds = []
-    @cats.each do |cat|
-      @breeds << cat.breed
-    end
-
-    @locations = []
-    @cats.each do |cat|
-      @locations << cat.location
-    end
-
-    @colors = []
-    @cats.each do |cat|
-      @colors << cat.coat_colour
-    end
-
-    @ages = []
-    @cats.each do |cat|
-      @ages << cat.estimated_age
-    end
+    @genders = @cats.map(&:gender).uniq
+    @breeds = @cats.map(&:breed).uniq
+    @locations = @cats.map(&:location).uniq
+    @coat_colours = @cats.map(&:coat_colour).uniq
+    @estimated_ages = @cats.map(&:estimated_age).uniq.sort
   end
 
   def show

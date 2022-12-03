@@ -3,7 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-
+import { filterByGender, filterByBreed  } from "./filters"
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -21,29 +21,9 @@ application.register("signup", SignupController)
 
 
 
-const dropdown = document.querySelector(".filter-dropdown")
+const genderDropdown = document.querySelector(".filter-param")
+const breedDropdown = document.querySelector(".filter-param")
 
 //event listener for GENDER
-dropdown.addEventListener("change", (event) => {
-  console.log(event.target.value)
-
-  // Query selectors
-  const cats = document.querySelectorAll(".cat-card")
-  const catContainer = document.querySelector(".cards")
-
-  // Converting DOM elements into an array
-  const catArray = Array.from(cats)
-
-  // filtering array by dataset
-  const filteredCats = catArray.filter(cat => cat.dataset.gender === event.target.value)
-  console.log(filteredCats)
-
-  // wiping dom clean
-  catContainer.innerHTML = "";
-
-  // appending filtered cats into DOM
-  filteredCats.forEach((item) => {
-    catContainer.appendChild(item);
-  })
-
-})
+genderDropdown.addEventListener("change", (event) => {filterByGender(event.target.value)})
+breedDropdown.addEventListener("change", (event) => {filterByBreed(event.target.value)})
