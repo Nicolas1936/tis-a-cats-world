@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   get "cats/my_cats", to: "cats#my_cats"
   resources :cats do
     collection do
@@ -19,5 +20,9 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :users
+  resources :users do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, only: [:destroy]
 end
