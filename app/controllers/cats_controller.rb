@@ -7,9 +7,9 @@ class CatsController < ApplicationController
 
   def toggle_favorite
     @cat = Cat.find_by(id: params[:id])
-    current_user.favorited?(@cat)  ? current_user.unfavorite(@cat) : current_user.favorite(@cat)
+    current_user.favorited?(@cat) ? current_user.unfavorite(@cat) : current_user.favorite(@cat)
 
-    render json: {favorited?: current_user.favorited?(@cat)}
+    render json: { favorited?: current_user.favorited?(@cat) }
   end
 
   def my_cats
@@ -21,6 +21,31 @@ class CatsController < ApplicationController
       @cats = Cat.search_cats(params[:query])
     else
       @cats = Cat.all
+    end
+
+    @genders = []
+    @cats.each do |cat|
+      @genders << cat.gender
+    end
+
+    @breeds = []
+    @cats.each do |cat|
+      @breeds << cat.breed
+    end
+
+    @locations = []
+    @cats.each do |cat|
+      @locations << cat.location
+    end
+
+    @colors = []
+    @cats.each do |cat|
+      @colors << cat.coat_colour
+    end
+
+    @ages = []
+    @cats.each do |cat|
+      @ages << cat.estimated_age
     end
   end
 
@@ -56,9 +81,7 @@ class CatsController < ApplicationController
     cats_authorization(@cat)
 
     cat_param = cat_params
-    if cat_param[:photos] == [""]
-      cat_param.delete(:photos)
-    end
+    cat_param.delete(:photos) if cat_param[:photos] == [""]
 
     if @cat.update(cat_param)
       redirect_to cats_my_cats_path
@@ -77,7 +100,7 @@ class CatsController < ApplicationController
   private
 
   def cats_authorization(cat)
-    redirect_to root_path if (cat.user != current_user) || (!current_user.is_org)
+    redirect_to root_path if (cat.user != current_user) || !current_user.is_org
   end
 
   def cat_params
