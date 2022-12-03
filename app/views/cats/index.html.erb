@@ -26,7 +26,7 @@
       <div class="filter-param">
         <label for="gender">gender</label>
           <select class="filter-dropdown" name="gender" id="gender">
-            <%  @genders.uniq.each do |gender| %>
+            <%  @genders.each do |gender| %>
               <option value="<%= gender %>"><%= gender %></option>
             <% end %>
           </select>
@@ -35,7 +35,7 @@
       <div class="filter-param">
         <label for="breed">breed</label>
           <select class="filter-dropdown" name="breed" id="breed">
-            <%  @breeds.uniq.each do |breed| %>
+            <%  @breeds.each do |breed| %>
               <option value="<%= breed %>"><%= breed %></option>
             <% end %>
           </select>
@@ -44,7 +44,7 @@
       <div class="filter-param">
         <label for="location">location</label>
           <select class="filter-dropdown" name="location" id="location">
-            <%  @locations.uniq.each do |location| %>
+            <%  @locations.each do |location| %>
               <option value="<%= location %>"><%= location %></option>
             <% end %>
           </select>
@@ -53,7 +53,7 @@
       <div class="filter-param">
         <label for="color">color</label>
           <select class="filter-dropdown" name="color" id="color">
-            <%  @colors.uniq.each do |color| %>
+            <%  @coat_colours.each do |color| %>
               <option value="<%= color %>"><%= color %></option>
             <% end %>
           </select>
@@ -62,7 +62,7 @@
       <div class="filter-param">
         <label for="age">age</label>
           <select class="filter-dropdown" name="age" id="age">
-            <%  @ages.uniq.each do |age| %>
+            <%  @estimated_ages.each do |age| %>
               <option value="<%= age %>"><%= age %></option>
             <% end %>
           </select>
