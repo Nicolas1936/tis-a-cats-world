@@ -24,9 +24,9 @@ application.register("signup", SignupController)
 
 
 
-const genderDropdown = document.querySelector(".filter-param")
-const breedDropdown = document.querySelector(".filter-param")
+// const genderDropdown = document.querySelector(".filter-param")
+// const breedDropdown = document.querySelector(".filter-param")
 
-//event listener for GENDER
-genderDropdown.addEventListener("change", (event) => {filterByGender(event.target.value)})
-breedDropdown.addEventListener("change", (event) => {filterByBreed(event.target.value)})
+// //event listener for GENDER
+// genderDropdown.addEventListener("change", (event) => {filterByGender(event.target.value)})
+// breedDropdown.addEventListener("change", (event) => {filterByBreed(event.target.value)})
