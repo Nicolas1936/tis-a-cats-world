@@ -23,7 +23,14 @@ class Cat < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_cats,
-    against: [ :name, :breed, :description, :gender, :location, :coat_colour ],
+    against: [
+      :name,
+      :breed,
+      :description,
+      :gender,
+      :location,
+      :coat_colour
+    ],
     associated_against: { user: [:org_name] },
     using: {
       tsearch: { prefix: true }

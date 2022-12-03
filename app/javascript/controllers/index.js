@@ -14,3 +14,32 @@ import LocationAutocompleteController from "./location_autocomplete_controller"
 application.register("location-autocomplete", LocationAutocompleteController)
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)
+
+
+
+const dropdown = document.querySelector(".filter-dropdown")
+
+//event listener for GENDER
+dropdown.addEventListener("change", (event) => {
+  console.log(event.target.value)
+
+  // Query selectors
+  const cats = document.querySelectorAll(".cat-card")
+  const catContainer = document.querySelector(".cards")
+
+  // Converting DOM elements into an array
+  const catArray = Array.from(cats)
+
+  // filtering array by dataset
+  const filteredCats = catArray.filter(cat => cat.dataset.gender === event.target.value)
+  console.log(filteredCats)
+
+  // wiping dom clean
+  catContainer.innerHTML = "";
+
+  // appending filtered cats into DOM
+  filteredCats.forEach((item) => {
+    catContainer.appendChild(item);
+  })
+
+})
