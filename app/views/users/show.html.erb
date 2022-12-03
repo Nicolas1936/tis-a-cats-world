@@ -8,7 +8,7 @@
 <div class="container">
   <% if @user.is_org? %>
     <h3><%= @user.org_name %></h3>
-    <%= link_to "Contact the Organization", root_path %>
+    <%= link_to "Contact the Organization", connect_chatrooms_user_path %>
     <% if !@user.photo.key.nil? %>
       <p><%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %></p>
     <% end %>
