@@ -2,13 +2,13 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
+  <h1>Organization : #<%= @chatroom.receiver.org_name %></h1>
   <div class="messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each do |message| %>
     <div id="message-<%= message.id %>">
       <small>
         <% if message.user.is_org %>
-          <strong><%= message.user.org_name %></strong>
+          <strong><%= message.user.org_name %> (Organization)</strong>
         <% else %>
           <strong><%= message.user.first_name %></strong>
         <% end %>

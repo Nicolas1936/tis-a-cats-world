@@ -19,5 +19,9 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'connect_chatrooms', to: "users#connect_chatrooms"
+    end
+  end
 end
