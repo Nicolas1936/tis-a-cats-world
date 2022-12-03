@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show, :edit, :update]
+
   def show
     @cats = @user.cats
   end
@@ -9,7 +10,28 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to user_path(@user)
+    redirect_to edit_user_path(@user)
+  end
+
+  def connect_chatrooms
+    receiver = User.find(params[:id])
+    asker = current_user
+
+    # if a chatrooms already existe with this reveiver and asker
+    chatroom = Chatroom.where(asker:asker, receiver:receiver)
+
+    if chatroom.any?
+      # Go inside this chatroom
+      redirect_to chatroom_path(chatroom.first)
+    # else
+    else
+      # Create a new chatroom with this 2 account
+      new_chatroom = Chatroom.create!(asker:asker, receiver:receiver)
+      # Go inside this new chatroom
+      redirect_to chatroom_path(new_chatroom)
+    # end
+    end
+
   end
 
   private
