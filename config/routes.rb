@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   root to: "pages#home"
 
   get "cats/my_cats", to: "cats#my_cats"
@@ -28,4 +26,9 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :users do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, only: [:destroy]
 end
