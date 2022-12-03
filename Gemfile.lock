@@ -6,6 +6,13 @@ GIT
       actionpack (>= 5.2)
       activemodel (>= 5.2)
 
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 7d55581c3624453210a0304e2c00de8a17779c0c
+  specs:
+    acts_as_favoritor (6.0.0)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -209,6 +216,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -283,6 +291,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  acts_as_favoritor!
   autoprefixer-rails
   bootsnap
   capybara
@@ -300,6 +309,7 @@ DEPENDENCIES
   pg_search
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 4.0)
   sassc-rails
   selenium-webdriver
   simple_form!

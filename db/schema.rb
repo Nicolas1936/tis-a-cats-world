@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_211510) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_004342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_211510) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.index ["asker_id"], name: "index_chatrooms_on_asker_id"
+    t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
+    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -123,6 +145,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_211510) do
     t.text "address"
     t.text "description"
     t.string "org_name"
+    t.string "org_phone_number"
     t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -131,6 +154,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_211510) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cats", "users"
+  add_foreign_key "chatrooms", "users", column: "asker_id"
+  add_foreign_key "chatrooms", "users", column: "receiver_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "taggings", "tags"
