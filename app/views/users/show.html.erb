@@ -8,7 +8,11 @@
 <div class="container">
   <% if @user.is_org? %>
     <h3><%= @user.org_name %></h3>
-    <%= link_to "Contact the Organization", root_path %>
+    <% if !current_user.is_org %>
+      <%= link_to "Contact the Organization", connect_chatrooms_user_path, data: {turbo_method: :post} %>
+    <% else %>
+      <p>You can not contact the organization</p>
+    <% end %>
     <% if !@user.photo.key.nil? %>
       <p><%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %></p>
     <% end %>
@@ -20,4 +24,21 @@
       <%= render "cats/cat", cat: cat %>
     <% end %>
   </div>
+</div>
+
+<div class="container">
+<%= link_to "Add a story", new_user_review_path(@user) %>
+  <p><strong>Testimonials</strong></p>
+  <ul class="list-group">
+    <% @user.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.content %>
+        <%= link_to "Delete",
+          review_path(review),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+         %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
 </div>

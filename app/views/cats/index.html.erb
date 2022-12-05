@@ -1,10 +1,84 @@
-<div class="footer-positioning">
-  <div class="container">
+  <div class="banner">
     <h1>all the cats</h1>
-    <div class="cards">
-      <% @cats.each do |cat| %>
-        <%= render "cats/cat", cat: cat %>
-      <% end %>
+  </div>
+
+<div class="container" id="cat-index-content">
+
+  <div class="index-sidebar">
+    <div class="filters-sidebar">
+
+      <div class="filters_search-bar">
+        <div class="text-center">
+          <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                id: "filters-form-control",
+                placeholder: "find my best friend"
+            %>
+          <%= submit_tag "search"%>
+          <% end %>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="filter-param">
+        <label for="gender">gender</label>
+          <select class="filter-dropdown" name="gender" id="gender">
+            <%  @genders.each do |gender| %>
+              <option value="<%= gender %>"><%= gender %></option>
+            <% end %>
+          </select>
+      </div>
+
+      <div class="filter-param">
+        <label for="breed">breed</label>
+          <select class="filter-dropdown" name="breed" id="breed">
+            <%  @breeds.each do |breed| %>
+              <option value="<%= breed %>"><%= breed %></option>
+            <% end %>
+          </select>
+      </div>
+
+      <div class="filter-param">
+        <label for="location">location</label>
+          <select class="filter-dropdown" name="location" id="location">
+            <%  @locations.each do |location| %>
+              <option value="<%= location %>"><%= location %></option>
+            <% end %>
+          </select>
+      </div>
+
+      <div class="filter-param">
+        <label for="color">color</label>
+          <select class="filter-dropdown" name="color" id="color">
+            <%  @coat_colours.each do |color| %>
+              <option value="<%= color %>"><%= color %></option>
+            <% end %>
+          </select>
+      </div>
+
+      <div class="filter-param">
+        <label for="age">age</label>
+          <select class="filter-dropdown" name="age" id="age">
+            <%  @estimated_ages.each do |age| %>
+              <option value="<%= age %>"><%= age %></option>
+            <% end %>
+          </select>
+      </div>
+      <%= link_to "reset filters", cats_path %>
+
     </div>
+
+    <div class="back-button">
+      <%= link_to "back to homepage", root_path %>
+    </div>
+  </div>
+
+  <div class="cards">
+    <% @cats.each do |cat| %>
+      <%= render "cats/cat", cat: cat %>
+    <% end %>
   </div>
 </div>

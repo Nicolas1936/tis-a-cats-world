@@ -4,7 +4,6 @@
   width: 100%;
   max-width: 1200px;
   margin: 0px auto;
-  margin-top: 16px;
   margin-bottom: 16px;
   padding: 0;
   list-style: none;
@@ -22,6 +21,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   min-height: 280px;
+  max-height: 300px;
   border-radius: 8px;
 
   img {

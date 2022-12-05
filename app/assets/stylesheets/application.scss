@@ -11,12 +11,13 @@
 @import "components/index";
 @import "components/cards";
 @import "components/search_bar";
+@import "components/banners";
 @import "pages/index";
 @import "pages/_cat_show";
 @import "pages/_user_show";
 
 
-// Import external livraries
+// Import external libraries
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 

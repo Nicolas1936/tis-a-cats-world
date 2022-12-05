@@ -3,7 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-
+import { filterByGender, filterByBreed  } from "./filters"
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -16,5 +16,17 @@ application.register("hello", HelloController)
 import LocationAutocompleteController from "./location_autocomplete_controller"
 application.register("location-autocomplete", LocationAutocompleteController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)
+
+
+
+// const genderDropdown = document.querySelector(".filter-param")
+// const breedDropdown = document.querySelector(".filter-param")
+
+// //event listener for GENDER
+// genderDropdown.addEventListener("change", (event) => {filterByGender(event.target.value)})
+// breedDropdown.addEventListener("change", (event) => {filterByBreed(event.target.value)})
