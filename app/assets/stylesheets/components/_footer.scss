@@ -13,11 +13,11 @@
     color: $white;
   }
   a:hover {
-    color: #A8DADC;
+    color: $baby-blue;
   }
 }
 .footer .fa-heart {
-    color: #f2b3ee;
+    color: $baby-pink;
 }
 .page-container {
   display: grid;
@@ -26,7 +26,7 @@
 }
 
 .block-copyright {
-  color: #ddb4ff;
+  color: $baby-purple;
   line-height: 12px;
   padding-top: 4px;
   padding-bottom: 16px;
