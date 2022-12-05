@@ -1,111 +1,113 @@
-<div class="wrapper">
-  <div class="cat-page-container">
-    <div class="cat-show-page">
-      <div class="">
-      <% if user_signed_in? && (current_user == @cat.user) %>
-        <%= link_to "edit my cat", edit_cat_path(@cat), class: "purple-button" %>
-        <%= link_to "delete my cat", cat_path(@cat), class: "purple-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-      </div>
+<div class="footer-positioning">
+  <div class="wrapper">
+    <div class="cat-page-container">
+      <div class="cat-show-page">
+        <div class="">
+        <% if user_signed_in? && (current_user == @cat.user) %>
+          <%= link_to "edit my cat", edit_cat_path(@cat), class: "purple-button" %>
+          <%= link_to "delete my cat", cat_path(@cat), class: "purple-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
+        </div>
 
-      <% if user_signed_in?%>
-        <div data-controller="favorite">
-          <%= link_to toggle_favorite_cat_path(@cat), data: {turbo_method: :get, action: "click->favorite#changeStatutFavorite"} do %>
-              <% if current_user.favorited?(@cat) %>
-                <% solid = "" %>
-                <% regular = "d-none" %>
-              <% else %>
-                <% solid = "d-none" %>
-                <% regular = "" %>
+        <% if user_signed_in?%>
+          <div data-controller="favorite">
+            <%= link_to toggle_favorite_cat_path(@cat), data: {turbo_method: :get, action: "click->favorite#changeStatutFavorite"} do %>
+                <% if current_user.favorited?(@cat) %>
+                  <% solid = "" %>
+                  <% regular = "d-none" %>
+                <% else %>
+                  <% solid = "d-none" %>
+                  <% regular = "" %>
+                <% end %>
+                <i class="fa-regular fa-heart <%= regular %>"
+                  style="font-size:32px;color:red;"
+                  data-favorite-target="regular"></i>
+
+                <i class="fa-solid fa-heart <%= solid %>"
+                  style="font-size:32px;color:red;"
+                  data-favorite-target="solid"></i>
               <% end %>
-              <i class="fa-regular fa-heart <%= regular %>"
-                style="font-size:32px;color:red;"
-                data-favorite-target="regular"></i>
-
-              <i class="fa-solid fa-heart <%= solid %>"
-                style="font-size:32px;color:red;"
-                data-favorite-target="solid"></i>
-            <% end %>
-        </div>
-      <% end %>
-
-      <div class="cat-photo-carousel">
-        <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+        <% end %>
 
-          <div class="carousel-inner">
-            <% @cat.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= "active" if index == 0 %>">
-                <%= cl_image_tag photo.key %>
-              </div>
-            <% end %>
+        <div class="cat-photo-carousel">
+          <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <% @cat.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %>">
+                  <%= cl_image_tag photo.key %>
+                </div>
+              <% end %>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#cat-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#cat-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#cat-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#cat-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="cat-info">
-
-        <div class="left-info">
-          <div class="cat-details">
-            <h2><%= @cat.name %></h2>
-            <p><%= @cat.breed %>, <%= @cat.gender %></p>
-
-            <% if @cat.is_adopted? %>
-              <strong><h6>ADOPTED</h6></strong>
-            <% end %>
-
-            <hr>
-            <h5>Health</h4>
-            <p>Estimated age: <%= @cat.estimated_age %></p>
-            <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
-            <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
-            <hr>
-            <p><%= @cat.location %></p>
-            <p><%= @cat.description %></p>
-          </div>
-
-          <div class="map"></div>
         </div>
 
-        <div class="right-info">
-          <div class="adoption-info">
-            <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
-          </div>
+        <div class="cat-info">
 
-          <div class="org-info">
-            <%= link_to user_path(@cat.user) do %>
-              <h2><%= @cat.user.org_name %></h2>
+          <div class="left-info">
+            <div class="cat-details">
+              <h2><%= @cat.name %></h2>
+              <p><%= @cat.breed %>, <%= @cat.gender %></p>
+
+              <% if @cat.is_adopted? %>
+                <strong><h6>ADOPTED</h6></strong>
+              <% end %>
+
               <hr>
-              <div class="cat-show-org-details">
-                <i class="fa-solid fa-location-dot"></i>
-                <%= @cat.user.address %>
-              </div>
+              <h5>Health</h4>
+              <p>Estimated age: <%= @cat.estimated_age %></p>
+              <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
+              <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
+              <hr>
+              <p><%= @cat.location %></p>
+              <p><%= @cat.description %></p>
+            </div>
 
-              <div class="cat-show-org-details">
-                <i class="fa-solid fa-envelope"></i>
-                <%= @cat.user.email %>
-              </div>
-            <% end %>
+            <div class="map"></div>
           </div>
+
+          <div class="right-info">
+            <div class="adoption-info">
+              <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
+            </div>
+
+            <div class="org-info">
+              <%= link_to user_path(@cat.user) do %>
+                <h2><%= @cat.user.org_name %></h2>
+                <hr>
+                <div class="cat-show-org-details">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <%= @cat.user.address %>
+                </div>
+
+                <div class="cat-show-org-details">
+                  <i class="fa-solid fa-envelope"></i>
+                  <%= @cat.user.email %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
         </div>
 
+
+
       </div>
-
-
-
     </div>
   </div>
 </div>
