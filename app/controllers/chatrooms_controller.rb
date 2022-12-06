@@ -1,15 +1,12 @@
 class ChatroomsController < ApplicationController
-  def show
-    @chatroom = Chatroom.find(params[:id])
-    @message = Message.new
-
-    if @chatroom.asker != current_user && @chatroom.receiver != current_user
-      redirect_to root_path
-    end
-  end
-
   def messages
     @is_org = current_user.is_org
+    @message = Message.new
+
+    if params[:chatroom_id]
+      @current_chatroom = Chatroom.find(params[:chatroom_id])
+    end
+
     if @is_org
       @chatrooms_connected = Chatroom.where(receiver:current_user)
       @org = ""
@@ -17,6 +14,5 @@ class ChatroomsController < ApplicationController
       @chatrooms_connected = Chatroom.where(asker:current_user)
       @org = " Organization"
     end
-
   end
 end

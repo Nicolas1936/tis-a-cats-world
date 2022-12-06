@@ -22,13 +22,13 @@ class UsersController < ApplicationController
 
     if chatroom.any?
       # Go inside this chatroom
-      redirect_to chatroom_path(chatroom.first)
+      redirect_to messages_path(chatroom_id:chatroom.first.id)
     # else
     else
       # Create a new chatroom with this 2 account
       new_chatroom = Chatroom.create!(asker:asker, receiver:receiver)
       # Go inside this new chatroom
-      redirect_to chatroom_path(new_chatroom)
+      redirect_to messages_path(chatroom_id:new_chatroom.id)
     # end
     end
 
