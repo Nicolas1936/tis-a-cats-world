@@ -9,11 +9,11 @@
         <% end %>
         </div>
 
+
+        <div class="cat-photo-carousel">
         <% if user_signed_in?%>
           <%= render "shared/favorite", cat: @cat %>
         <% end %>
-
-        <div class="cat-photo-carousel">
           <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
