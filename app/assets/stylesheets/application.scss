@@ -24,6 +24,10 @@
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 
+.cat-card .fa-heart {
+  font-size: 24px !important;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto !important;

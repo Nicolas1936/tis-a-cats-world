@@ -1,5 +1,8 @@
+<div class="banner">
+  <h1>My favourite cats</h1>
+</div>
+
 <div class="container">
-    <h1>My favourites cats</h1>
     <div class="cards">
       <% @cats.each do |cat| %>
         <%= render "cats/cat", cat: cat %>
