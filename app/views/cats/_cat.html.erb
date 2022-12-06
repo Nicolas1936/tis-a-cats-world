@@ -1,6 +1,9 @@
 <div class ="cat-card" data-breed="<%= cat.breed %>" data-gender="<%= cat.gender %>" data-location="<%= cat.location %>" data-color="<%= cat.coat_colour %>" data-age="<%= cat.estimated_age %>">
   <%= link_to cat_path(cat) do %>
-    <%= cl_image_tag cat.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <div>
+      <%= render "shared/favorite", cat: cat %>
+      <%= cl_image_tag cat.photos.first.key, height: 300, width: 400, crop: :fill %>
+    </div>
     <div class="cat-card-infos">
       <h3><%= cat.name.upcase %></h3>
       <p><strong><%= cat.breed %></strong></p>
