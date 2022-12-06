@@ -1,10 +1,8 @@
-<div class="footer-positioning">
-  <div class="container">
+<div class="container">
     <h1>My favourites cats</h1>
     <div class="cards">
       <% @cats.each do |cat| %>
         <%= render "cats/cat", cat: cat %>
       <% end %>
     </div>
-  </div>
 </div>
