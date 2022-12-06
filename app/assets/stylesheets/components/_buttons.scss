@@ -1,0 +1,35 @@
+.purple-button {
+  border-radius: 8px;
+  background-color: $purple;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+.purple-button:hover {
+  color: $white;
+  background-color: $pink;
+  cursor: pointer;
+
+  a {
+    color: $white;
+  }
+}
+
+.back-button {
+  background-color: $purple-dark;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+  color: $white;
+}
+.back-button:hover {
+  background-color: $pink;
+  color: $white;
+  cursor: pointer;
+}

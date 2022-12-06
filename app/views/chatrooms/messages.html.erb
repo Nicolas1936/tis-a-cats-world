@@ -1,22 +1,40 @@
-<div class="container">
+<div class="footer-positioning">
+
+<div class="banner">
   <% if @is_org %>
-    <h1>Messages (<%= current_user.org_name %>)</h1>
+    <h1><%= current_user.org_name %>'s messages</h1>
   <% else %>
-    <h1>Messages (<%= current_user.first_name %>)</h1>
+    <h1><%= current_user.first_name %>'s messages</h1>
   <% end %>
-  <%= link_to "Back", root_path%>
-  <hr>
-  <% if @chatrooms_connected.any? %>
-    <% @chatrooms_connected.each do |chatroom| %>
-      <% if @is_org %>
-        <p>with <b><%= chatroom.asker.first_name %></b></p>
-      <% else %>
-        <p>with <b><%= chatroom.receiver.org_name %> Organization</b></p>
+  <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
+</div>
+
+<div class="messages-page-container">
+
+  <div class="message-card-container">
+    <% if @chatrooms_connected.any? %>
+
+      <% @chatrooms_connected.each do |chatroom| %>
+        <div class="message-card">
+          <% if @is_org %>
+            <h6><%= link_to chatroom.asker.first_name, messages_path(chatroom_id:chatroom.id) %></h6>
+          <% else %>
+            <h6><%= link_to chatroom.receiver.org_name, messages_path(chatroom_id:chatroom.id) %></h6>
+          <% end %>
+        </div>
       <% end %>
-      <p><%= link_to "View messages", chatroom_path(chatroom) %>&nbsp;&nbsp;<i class="fa-solid fa-message" style="font-size:32px;"></i></p>
-      <hr>
+
+    <% else %>
+      <h3>your inbox is empty</h3>
     <% end %>
-  <% else %>
-    <h3>No messages</h3>
-  <% end %>
+  </div>
+
+  <div class="conversation">
+    <% if @current_chatroom  %>
+      <%= render "chatroom", chatroom: @current_chatroom %>
+    <% else %>
+      <p>click a chat to display it</p>
+    <% end %>
+  </div>
+
 </div>

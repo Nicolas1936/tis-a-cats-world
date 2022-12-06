@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get 'messages', to: "chatrooms#messages"
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [] do
     resources :messages, only: :create
   end
 
