@@ -55,6 +55,7 @@
 
 .adoption-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -63,6 +64,10 @@
   width: 100%;
   height: 150px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.adoption-info-buttons {
+  display: flex;
+  gap: 24px;
 }
 
 .org-info {
