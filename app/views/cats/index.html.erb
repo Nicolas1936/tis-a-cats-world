@@ -17,58 +17,30 @@
                   id: "filters-form-control",
                   placeholder: "find my best friend"
               %>
-            <%= submit_tag "search"%>
+              <%= submit_tag "search"%>
+            <% end %>
+            <%= form_with url: cats_path, method: :get, class: "" do |f| %>
+                <% Cat.filter_options.each do |filter| %>
+                  <label for=filter> <%= filter.humanize %> </label>
+                  <div class="filter-param">
+                    <%= f.select(filter, Cat.all_available_cats_infos(filter),
+                    {
+                      :include_blank => "Select",
+                      selected: params[filter] ? params[filter] : nil
+                    },
+                    {
+                      onchange: 'this.form.submit()'
+                    }) %>
+                  </div>
+                <% end %>
+              <%= link_to "reset filters", cats_path %>
             <% end %>
           </div>
         </div>
 
         <hr>
 
-        <div class="filter-param">
-          <label for="gender">gender</label>
-            <select class="filter-dropdown" name="gender" id="gender">
-              <%  @genders.each do |gender| %>
-                <option value="<%= gender %>"><%= gender %></option>
-              <% end %>
-            </select>
-        </div>
 
-        <div class="filter-param">
-          <label for="breed">breed</label>
-            <select class="filter-dropdown" name="breed" id="breed">
-              <%  @breeds.each do |breed| %>
-                <option value="<%= breed %>"><%= breed %></option>
-              <% end %>
-            </select>
-        </div>
-
-        <div class="filter-param">
-          <label for="location">location</label>
-            <select class="filter-dropdown" name="location" id="location">
-              <%  @locations.each do |location| %>
-                <option value="<%= location %>"><%= location %></option>
-              <% end %>
-            </select>
-        </div>
-
-        <div class="filter-param">
-          <label for="color">color</label>
-            <select class="filter-dropdown" name="color" id="color">
-              <%  @coat_colours.each do |color| %>
-                <option value="<%= color %>"><%= color %></option>
-              <% end %>
-            </select>
-        </div>
-
-        <div class="filter-param">
-          <label for="age">age</label>
-            <select class="filter-dropdown" name="age" id="age">
-              <%  @estimated_ages.each do |age| %>
-                <option value="<%= age %>"><%= age %></option>
-              <% end %>
-            </select>
-        </div>
-        <%= link_to "reset filters", cats_path %>
 
       </div>
 
