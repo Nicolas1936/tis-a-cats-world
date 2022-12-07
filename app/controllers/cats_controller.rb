@@ -20,14 +20,13 @@ class CatsController < ApplicationController
     if params[:query].present?
       @cats = Cat.search_cats(params[:query])
     else
-      @cats = Cat.all
+      @cats = Cat.where(nil) # creates an anonymous scope
+      @cats = @cats.filter_by_gender(params[:gender]) if params[:gender].present?
+      @cats = @cats.filter_by_breed(params[:breed]) if params[:breed].present?
+      @cats = @cats.filter_by_location(params[:location]) if params[:location].present?
+      @cats = @cats.filter_by_coat_colour(params[:coat_colour]) if params[:coat_colour].present?
+      @cats = @cats.filter_by_estimated_age(params[:estimated_age]) if params[:estimated_age].present?
     end
-
-    @genders = @cats.map(&:gender).uniq
-    @breeds = @cats.map(&:breed).uniq
-    @locations = @cats.map(&:location).uniq
-    @coat_colours = @cats.map(&:coat_colour).uniq
-    @estimated_ages = @cats.map(&:estimated_age).uniq.sort
   end
 
   def show

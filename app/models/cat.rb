@@ -24,6 +24,12 @@ class Cat < ApplicationRecord
 
   include PgSearch::Model
 
+  scope :filter_by_gender, ->(gender) { where gender: gender }
+  scope :filter_by_breed, ->(breed) { where breed: breed }
+  scope :filter_by_location, ->(location) { where location: location }
+  scope :filter_by_coat_colour, ->(coat_colour) { where coat_colour: coat_colour }
+  scope :filter_by_estimated_age, ->(estimated_age) { where estimated_age: estimated_age }
+
   pg_search_scope :search_cats,
     against: [
       :name,
@@ -37,6 +43,16 @@ class Cat < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  FILTER_OPTIONS = ["gender", "breed", "location", "coat_colour", "estimated_age"].freeze
+
+  def self.all_available_cats_infos(filter)
+    Cat.all.map { |cat| cat.send(filter) }.uniq
+  end
+
+  def self.filter_options
+    FILTER_OPTIONS
+  end
 
   private
 

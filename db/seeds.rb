@@ -35,6 +35,20 @@ array_users = [
     email: "rish@lewagon.com",
     password: "lewagon",
     is_org: false
+  },
+  {
+    first_name: "Taraneh",
+    last_name: "Karimi",
+    email: "tara@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Victoria",
+    last_name: "Torelli",
+    email: "vic@lewagon.com",
+    password: "lewagon",
+    is_org: false
   }
 ]
 
@@ -46,19 +60,17 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "The Lone Whisker",
-    address: "Alkmaar, Netherlands",
+    address: "Mauritskade 55, 1092 AD Amsterdam",
     description: "The Lone whisker specialises in international cat adoptions"
-
   },
-
   {
-    first_name: " ",
-    last_name: " ",
+    first_name: "",
+    last_name: "",
     email: "sassytails@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "Sassy Tails",
-    address: "Winter Springs, FL, USA",
+    address: "215 N Moss Rd, Winter Springs, FL 32708, USA",
     description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years"
   },
   {
@@ -68,8 +80,28 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "Meows and Moos",
-    address: "New Delhi",
+    address: "Tyagaraj Marg, New Delhi, Delhi 110004, India",
     description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons."
+  },
+  {
+    first_name: "Isaac",
+    last_name: "Mewton",
+    email: "sofurtunate@lewagon.com",
+    password: "lewagon",
+    is_org: true,
+    org_name: "So FurTunate",
+    address: "Laat 183, 1811 EE Alkmaar, Netherlands",
+    description: "I have always loved cats. I seem to not be able to stop bringing them home! I live in a mansion, so I decided that I would open the So FURtunate sanctuary, that way I can just keep having cats forever. This is a privately owned and run sanctuary but we are always happy to receive volunteers!"
+  },
+  {
+    first_name: "",
+    last_name: "",
+    email: "dontworrybetabby@lewagon.com",
+    password: "lewagon",
+    is_org: true,
+    org_name: "Don't worry, be Tabby",
+    address: "Ebbehout 22, 1507 EA Zaandam",
+    description: "A very chill adoption agency. We believe that a stress free life is the only life a cat should have. We ourselves live by that rule, so come on in and grab one of those complimentary brownies!"
   }
 ]
 
