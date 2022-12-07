@@ -19,6 +19,7 @@
               <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#cat-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
 
             <div class="carousel-inner">
@@ -57,11 +58,8 @@
               <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
               <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
               <hr>
-              <p><%= @cat.location %></p>
               <p><%= @cat.description %></p>
             </div>
-
-            <div class="map"></div>
           </div>
 
           <div class="right-info">
@@ -89,11 +87,10 @@
               <% end %>
             </div>
           </div>
-
         </div>
 
 
-
+      <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
       </div>
     </div>
   </div>
