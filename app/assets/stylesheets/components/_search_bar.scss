@@ -3,7 +3,7 @@
   width: 25%;
   font-size: 16px;
 }
-#search-btn-homepage {
+.search-btn-homepage {
   border-radius: 0  24px  24px  0;
   border: none;
   height: 40px;
@@ -27,25 +27,31 @@
   justify-content: center;
   row-gap: 16px;
   width: 100%;
-  height: 500px;
+  height: 450px;
   padding: 20px;
   border-radius: 8px;
   background-color: $lilac;
 }
 
 .filters {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-  width: 100%;
+  // display: flex;
 }
 
 .filter-param {
   display: flex;
   flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 #filters-form-control {
   height: 32px;
   border-radius: 8px;
+  background-color: white;
+}
+
+.index-sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
 }

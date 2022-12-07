@@ -7,18 +7,20 @@
 
     <div class="index-sidebar">
       <div class="filters-sidebar">
+        <div class="text-left">
+          <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                id: "filters-form-control",
+                placeholder: "search"
+            %>
+            <%= submit_tag "go", class: "pink-button", id: "sidebar-search-button"%>
+          <% end %>
 
-        <div class="filters_search-bar">
-          <div class="text-center">
-            <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
-              <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  id: "filters-form-control",
-                  placeholder: "find my best friend"
-              %>
-              <%= submit_tag "search"%>
-            <% end %>
+          <hr>
+
+          <div class="filters">
             <%= form_with url: cats_path, method: :get, class: "" do |f| %>
                 <% Cat.filter_options.each do |filter| %>
                   <label for=filter> <%= filter.humanize %> </label>
@@ -33,19 +35,20 @@
                     }) %>
                   </div>
                 <% end %>
-              <%= link_to "reset filters", cats_path %>
             <% end %>
           </div>
+          <hr>
+          <%= link_to "reset filters", cats_path %>
         </div>
-
-        <hr>
-
-
-
       </div>
 
-      <div class="back-button">
-        <%= link_to "back to homepage", root_path %>
+      <div class="index-sidebar-buttons">
+        <div class="dark-purple-button">
+          <%= link_to "back to homepage", root_path %>
+        </div>
+        <div class="purple-button">
+          <%= link_to "view my favourites", favorite_path %>
+        </div>
       </div>
     </div>
 

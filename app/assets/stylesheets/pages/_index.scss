@@ -5,3 +5,22 @@
   display: flex;
   gap: 48px;
 }
+
+.index-sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+#sidebar-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  height: 32px;
+  background-color: $pink;
+  color: $white;
+  font-family: 'Lato', sans-serif;
+
+}
