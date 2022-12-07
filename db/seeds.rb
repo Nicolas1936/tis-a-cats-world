@@ -1,8 +1,8 @@
 puts "Cleaning DB ..."
-User.destroy_all
 Cat.destroy_all
-Chatroom.destroy_all
 Message.destroy_all
+Chatroom.destroy_all
+User.destroy_all
 puts " "
 puts "Database cleaned successfully."
 puts " "
@@ -122,19 +122,17 @@ array_orgs.each do |org|
   puts "User (#{org_new.email}) created"
 end
 
-cat_image = "https://images.unsplash.com/photo-1615796153287-98eacf0abb13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+# cat_image = "https://images.unsplash.com/photo-1615796153287-98eacf0abb13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
 
 
 cat1 = [
-  "https://files.slack.com/files-pri/T02NE0241-F04B9DF2Q07/img-20221119-wa0000.jpg?pub_secret=7d21a98389",
-  "https://files.slack.com/files-pri/T02NE0241-F04BHBU58MC/img-20221118-wa0003.jpg?pub_secret=473379fdb0",
-  "https://files.slack.com/files-pri/T02NE0241-F04BHBU632A/img-20221118-wa0000.jpg?pub_secret=76cf397659",
-  "https://files.slack.com/files-pri/T02NE0241-F04B9DV7NUF/20220429_111243.jpg?pub_secret=cfd5559254"
+  "https://files.slack.com/files-pri/T02NE0241-F04B9DV7NUF/20220429_111243.jpg?pub_secret=cfd5559254",
+  "https://files.slack.com/files-pri/T02NE0241-F04BHBU58MC/img-20221118-wa0003.jpg?pub_secret=473379fdb0"
 ]
 
 cat2 = [
-  "https://files.slack.com/files-pri/T02NE0241-F04BM238V0D/20220709_142019.jpg?pub_secret=091ce89427",
-  "https://files.slack.com/files-pri/T02NE0241-F04B9DVTSJ3/20220721_214043.jpg?pub_secret=333ac4541e"
+  "https://files.slack.com/files-pri/T02NE0241-F04B9DVTSJ3/20220721_214043.jpg?pub_secret=333ac4541e",
+  "https://files.slack.com/files-pri/T02NE0241-F04BM238V0D/20220709_142019.jpg?pub_secret=091ce89427"
 ]
 
 cat3 = [
@@ -143,8 +141,8 @@ cat3 = [
 ]
 
 cat4 = [
-  "https://files.slack.com/files-pri/T02NE0241-F04B9E159FH/508db353-da33-4e94-87a5-2dd03af4a8c1.jpg?pub_secret=3a27c822c7",
-  "https://files.slack.com/files-pri/T02NE0241-F04BSE62H7E/3ce9aff4-b062-4c23-8557-08a8df94c647.jpg?pub_secret=7e4622a81c"
+  "https://files.slack.com/files-pri/T02NE0241-F04BSE62H7E/3ce9aff4-b062-4c23-8557-08a8df94c647.jpg?pub_secret=7e4622a81c",
+  "https://files.slack.com/files-pri/T02NE0241-F04B9E159FH/508db353-da33-4e94-87a5-2dd03af4a8c1.jpg?pub_secret=3a27c822c7"
 ]
 
 cat5 = [
@@ -156,8 +154,102 @@ cat5 = [
 
 cat6 = [
   "https://files.slack.com/files-pri/T02NE0241-F04BHCLPT0W/img_20201114_185349.jpg?pub_secret=0ad9f8f306",
-  "https://files.slack.com/files-pri/T02NE0241-F04BHCLLVDL/img_20201115_152814.jpg?pub_secret=f5e78aa86d",
-  "https://files.slack.com/files-pri/T02NE0241-F04BPT4QB7V/photo-2022-10-06-08-51-19.jpeg?pub_secret=97cc3df3d4"
+  "https://files.slack.com/files-pri/T02NE0241-F04BHCLLVDL/img_20201115_152814.jpg?pub_secret=f5e78aa86d"
+]
+
+cat7 = [
+  "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1511044568932-338cba0ad803?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+]
+
+cat8 = [
+  "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1493548578639-b0c241186eb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1466618786657-4df462be674e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1488015795646-7e22a773d72a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+]
+
+cat9 = [
+  "https://images.unsplash.com/photo-1491485880348-85d48a9e5312?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2129&q=80"
+]
+
+cat10 = [
+  "https://images.unsplash.com/photo-1588621332104-5e128b074d51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1614538899770-96fbb708eff8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2282&q=80",
+  "https://images.unsplash.com/photo-1602660689940-c3164fde7160?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2336&q=80"
+]
+
+cat11 = [
+  "https://images.unsplash.com/photo-1564605503879-eb94cf4c02e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFpbmUlMjBjb29ufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1586942389065-e4fe03240b52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1591696038577-944232f59007?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFpbmUlMjBjb29ufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat12 = [
+  "https://images.unsplash.com/photo-1597237154674-1a0d2274cef4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80",
+  "https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1568043210943-0e8aac4b9734?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat13 = [
+  "https://images.unsplash.com/photo-1566340070191-403a3b871d27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2131&q=80",
+  "https://images.unsplash.com/photo-1611034542136-8c6c759ab5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGdpbmdlciUyMGNhdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1612804146133-a62865ed18e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z2luZ2VyJTIwY2F0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1469569946320-b4f13e4b7d5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2luZ2VyJTIwY2F0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat14 = [
+  "https://images.unsplash.com/photo-1501820488136-72669149e0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1561669585-ea4b95fd4417?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80",
+  "https://images.unsplash.com/photo-1496284575094-d5b92db3890d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1502083896352-259ab9e342d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+]
+
+cat15 = [
+  "https://images.unsplash.com/photo-1568307970720-a8c50b644a7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1530991671072-ac4f81c2c3c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1639102435835-33d0768ad941?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat16 = [
+  "https://images.unsplash.com/photo-1497473376897-16fbb7552478?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1635&q=80",
+  "https://images.unsplash.com/photo-1511275539165-cc46b1ee89bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1512873897628-eea05c840147?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat17 = [
+  "https://images.unsplash.com/photo-1588665902767-c728c820cf21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1612288106997-6078c69d5386?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBhbmQlMjB3aGl0ZSUyMGNhdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1634500408946-1b4ddc3e670d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJsYWNrJTIwYW5kJTIwd2hpdGUlMjBjYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1631398741662-3e0a047c6c5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwYW5kJTIwd2hpdGUlMjBjYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat18 = [
+  "https://images.unsplash.com/photo-1620071134584-93621c411448?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80",
+  "https://images.unsplash.com/photo-1592385672401-ab91fccb6fd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2hpdGUlMjBjYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1620500751758-41110291ffff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2234&q=80",
+  "https://images.unsplash.com/photo-1620071089978-d1a2c7aba540?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60"
+]
+
+cat19 = [
+  "https://images.unsplash.com/photo-1497910091122-9f8a7746eb33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjBjYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1586863513779-2d0b413bd512?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwY2F0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1617432979681-3ecbc1b961aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+]
+
+cat20 = [
+  "https://images.unsplash.com/photo-1493406300581-484b937cdc41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1517495146229-65df424a721e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2352&q=80",
+  "https://images.unsplash.com/photo-1482848945261-8bbeabb5e3fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+]
+
+cat21 = [
+  "https://images.unsplash.com/photo-1601280494157-6a5106ad2896?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1607623488911-87a2e6076542?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1606118123407-2b45819533a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
+  "https://images.unsplash.com/photo-1591860455878-5458e029601e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
 ]
 
 cats_images = [
@@ -167,30 +259,46 @@ cats_images = [
   cat4,
   cat5,
   cat6,
+  cat7,
+  cat8,
+  cat9,
+  cat10,
+  cat11,
+  cat12,
+  cat13,
+  cat14,
+  cat15,
+  cat16,
+  cat17,
+  cat18,
+  cat19,
+  cat20,
+  cat21,
+  ["https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"],
   ["https://images.unsplash.com/photo-1548366086-7f1b76106622?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=976&q=80"],
-  ["https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80"],
-  ["https://images.unsplash.com/photo-1583795128727-6ec3642408f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1657&q=80"],
-  ["https://images.unsplash.com/photo-1548546738-8509cb246ed3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"]
+  ["https://images.unsplash.com/photo-1583795128727-6ec3642408f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1657&q=80"]
 ]
 
 filepath = "lib/json/cats_infos.json"
 serialized_cats_infos = File.read(filepath)
 cats_infos = JSON.parse(serialized_cats_infos)
 
+shuffled_cat_names = cats_infos["name"].shuffle
+
 puts " "
 puts "--------------------"
 puts "creating cats"
 puts " "
 
-num_cats = 10
+# num_cats = 10
 cats_images.each_with_index do |cat_images, index|
 # num_cats.times do
   cat = {
-    name: Faker::Creature::Cat.name,
+    name: shuffled_cat_names.pop,
     breed: cats_infos["breed"].sample,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     user: User.where(is_org: true).sample,
-    location: "brussels, belgium",
+    location: "Amsterdam",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false].sample,
     is_adopted: false,

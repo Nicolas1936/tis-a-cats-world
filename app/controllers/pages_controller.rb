@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @last_cats = Cat.order(created_at: :desc).last(3)
+    @last_cats = Cat.order(created_at: :asc).last(4)
     @cats = Cat.all
 
     @markers = @cats.geocoded.map do |cat|
