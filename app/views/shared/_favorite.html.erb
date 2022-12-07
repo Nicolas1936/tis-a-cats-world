@@ -1,6 +1,6 @@
 <div data-controller="favorite" style="position: relative;">
   <%= link_to toggle_favorite_cat_path(cat), data: {turbo_method: :get, action: "click->favorite#changeStatutFavorite"} do %>
-      <% if current_user.favorited?(cat) %>
+      <% if current_user.present? && current_user.favorited?(cat) %>
         <% solid = "" %>
         <% regular = "d-none" %>
       <% else %>
