@@ -11,8 +11,9 @@
       </div>
       <div class="org" data-controller="signup">
         <% if @user.is_org? %>
-        <%= f.input :org_name, label: "Organisation Name" %>
+          <%= f.input :org_name, label: "Organisation Name" %>
           <%= f.input :description, label: "Can you describe your org?"%>
+          <%= f.input :org_phone_number, label: "Telephone" %>
         <% end %>
 
       </div>

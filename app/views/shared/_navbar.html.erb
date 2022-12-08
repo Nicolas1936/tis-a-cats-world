@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+ <div>
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-paw" id="navbar-logo"></i>
     <% end %>
@@ -8,58 +8,58 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <% if user_signed_in? && current_user.is_org %>
-            <li class="nav-item active">
-              <%= link_to "view my cats", cats_my_cats_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item active">
-              <%= link_to "add a new cat", new_cat_path, class: "nav-link" %>
-            </li>
-          <% end %>
-          <li class="nav-item">
-            <%= link_to "what we do", cats_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "find an organization", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "adopt a cat", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "lost/found pet?", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "volunteer", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "FAQ", "#", class: "nav-link" %>
+    <ul class="navbar-nav me-auto">
+        <% if user_signed_in? && current_user.is_org %>
+          <li class="nav-item active">
+            <%= link_to "view my cat", cats_my_cats_path, class: "nav-link" %>
           </li>
 
-        <% if user_signed_in? %>
-         <li class="nav-item dropdown">
-            <% if !current_user.photo.key.nil? %>
-              <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "messages", messages_path, class: "dropdown-item" %>
-              <%= link_to "profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "edit profile", edit_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "favourites", favorite_path, class: "dropdown-item" %>
-              <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to "login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item active">
+            <%= link_to "add a new cat", new_cat_path, class: "nav-link" %>
           </li>
         <% end %>
+        <li class="nav-item">
+          <%= link_to "What We Do", cats_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Find organization", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Adopt Cat", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Lost/Found Pet?", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Volunteer", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "FAQ", "#", class: "nav-link" %>
+        </li>
       </ul>
-    </div>
+  </div>
+  <div>
+    <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <% if !current_user.photo.key.nil? %>
+          <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "messages", messages_path, class: "dropdown-item" %>
+          <%= link_to "profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "edit profile", edit_user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "favourites", favorite_path, class: "dropdown-item" %>
+          <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+
+
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
   </div>
 </div>
