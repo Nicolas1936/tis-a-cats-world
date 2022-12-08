@@ -8,8 +8,10 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
 
   has_many :cats, dependent: :destroy
-
   has_many :reviews, dependent: :destroy
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   has_one_attached :photo
   acts_as_favoritor

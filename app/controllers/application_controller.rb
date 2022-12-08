@@ -7,9 +7,12 @@ class ApplicationController < ActionController::Base
              :last_name,
              :is_org,
              :address,
+             :latitude,
+             :longitude,
              :description,
              :org_name,
-             :photo])
+             :photo,
+             :org_phone_number])
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update,
@@ -17,8 +20,11 @@ class ApplicationController < ActionController::Base
         :last_name,
         :is_org,
         :address,
+        :latitude,
+        :longitude,
         :description,
         :org_name,
-        :photo])
+        :photo,
+        :org_phone_number])
   end
 end

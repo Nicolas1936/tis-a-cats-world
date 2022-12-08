@@ -45,7 +45,8 @@ class UsersController < ApplicationController
       :last_name,
       :address,
       :description,
-      :org_name
+      :org_name,
+      :org_phone_number
     )
   end
 
