@@ -1,14 +1,3 @@
-<div class="footer-positioning">
-
-<div class="banner">
-  <% if @is_org %>
-    <h1><%= current_user.org_name %>'s messages</h1>
-  <% else %>
-    <h1><%= current_user.first_name %>'s messages</h1>
-  <% end %>
-  <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
-</div>
-
 <div class="messages-page-container">
 
   <div class="message-card-container">
@@ -27,6 +16,8 @@
     <% else %>
       <h3>your inbox is empty</h3>
     <% end %>
+
+    <%= link_to "< back", 'javascript:history.back()', class: "back-button", id:"chat-back-button" %>
   </div>
 
   <div class="conversation">
@@ -36,5 +27,4 @@
       <p>click a chat to display it</p>
     <% end %>
   </div>
-
 </div>

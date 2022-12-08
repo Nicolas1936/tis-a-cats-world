@@ -1,12 +1,8 @@
 .messages-page-container {
   max-width: 1200px;
-  margin: 0 auto !important;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // border-radius: 8px;
-  // padding: 24px;
+  margin-top: 64px;
   display: flex;
   justify-content: center;
-  gap: 24px;
 }
 
 .message-card-container {
