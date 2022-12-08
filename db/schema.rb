@@ -153,7 +153,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_194603) do
     t.text "address"
     t.text "description"
     t.string "org_name"
-    t.string "org_phone_number"
     t.string "nickname"
     t.float "latitude"
     t.float "longitude"
