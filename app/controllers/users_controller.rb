@@ -9,8 +9,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to edit_user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def connect_chatrooms
