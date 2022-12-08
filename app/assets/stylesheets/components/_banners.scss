@@ -1,13 +1,14 @@
 // homepage
 .homepage-banner {
   background-color:$lilac;
-  height: 300px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 24px;
+  padding-top: 50px;
   margin-bottom: 64px;
 
   p {
@@ -18,7 +19,7 @@
 
 .homepage-banner-logo {
   font-size: 80px;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
 }
 
 //general banner (TITLE)

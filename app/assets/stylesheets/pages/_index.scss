@@ -4,6 +4,7 @@
 #cat-index-content {
   display: flex;
   gap: 48px;
+  padding-top: 72px;
 }
 
 .index-sidebar-buttons {
@@ -22,5 +23,4 @@
   background-color: $pink;
   color: $white;
   font-family: 'Lato', sans-serif;
-
 }
