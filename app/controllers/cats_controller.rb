@@ -2,14 +2,23 @@ class CatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :edit
 
   def favorite
-    @cats = current_user.favorited_by_type('Cat')
+    if !current_user
+      redirect_to new_user_session_path
+    else
+      @cats = current_user.favorited_by_type('Cat')
+    end
   end
 
   def toggle_favorite
-    @cat = Cat.find_by(id: params[:id])
-    current_user.favorited?(@cat) ? current_user.unfavorite(@cat) : current_user.favorite(@cat)
 
-    render json: { favorited?: current_user.favorited?(@cat) }
+    if !current_user
+      redirect_to new_user_session_path
+    else
+      @cat = Cat.find_by(id: params[:id])
+      current_user.favorited?(@cat) ? current_user.unfavorite(@cat) : current_user.favorite(@cat)
+
+      render json: { favorited?: current_user.favorited?(@cat) }
+    end
   end
 
   def my_cats

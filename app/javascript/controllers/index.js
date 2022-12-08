@@ -3,7 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-import { filterByGender, filterByBreed  } from "./filters"
+// import { filterByGender, filterByBreed  } from "./filters"
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
