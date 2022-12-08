@@ -1,60 +1,55 @@
+<div class="container" id="cat-index-content">
 
-  <div class="banner">
-    <h1>all the cats</h1>
-  </div>
+  <div class="index-sidebar">
+    <div class="filters-sidebar">
+      <div class="text-left">
+        <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              id: "filters-form-control",
+              placeholder: "search"
+          %>
+          <%= submit_tag "go", class: "pink-button", id: "sidebar-search-button"%>
+        <% end %>
 
-  <div class="container" id="cat-index-content">
+        <hr>
 
-    <div class="index-sidebar">
-      <div class="filters-sidebar">
-        <div class="text-left">
-          <%= form_with url: cats_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                id: "filters-form-control",
-                placeholder: "search"
-            %>
-            <%= submit_tag "go", class: "pink-button", id: "sidebar-search-button"%>
+        <div class="filters">
+          <%= form_with url: cats_path, method: :get, class: "" do |f| %>
+              <% Cat.filter_options.each do |filter| %>
+                <label for=filter> <%= filter.humanize %> </label>
+                <div class="filter-param">
+                  <%= f.select(filter, Cat.all_available_cats_infos(filter),
+                  {
+                    :include_blank => "Select",
+                    selected: params[filter] ? params[filter] : nil
+                  },
+                  {
+                    onchange: 'this.form.submit()'
+                  }) %>
+                </div>
+              <% end %>
           <% end %>
-
-          <hr>
-
-          <div class="filters">
-            <%= form_with url: cats_path, method: :get, class: "" do |f| %>
-                <% Cat.filter_options.each do |filter| %>
-                  <label for=filter> <%= filter.humanize %> </label>
-                  <div class="filter-param">
-                    <%= f.select(filter, Cat.all_available_cats_infos(filter),
-                    {
-                      :include_blank => "Select",
-                      selected: params[filter] ? params[filter] : nil
-                    },
-                    {
-                      onchange: 'this.form.submit()'
-                    }) %>
-                  </div>
-                <% end %>
-            <% end %>
-          </div>
-          <hr>
-          <%= link_to "reset filters", cats_path %>
         </div>
-      </div>
-
-      <div class="index-sidebar-buttons">
-        <div class="dark-purple-button">
-          <%= link_to "back to homepage", root_path %>
-        </div>
-        <div class="purple-button">
-          <%= link_to "view my favourites", favorite_path %>
-        </div>
+        <hr>
+        <%= link_to "reset filters", cats_path %>
       </div>
     </div>
 
-    <div class="cards">
-      <% @cats.each do |cat| %>
-        <%= render "cats/cat", cat: cat %>
-      <% end %>
+    <div class="index-sidebar-buttons">
+      <div class="dark-purple-button">
+        <%= link_to "back to homepage", root_path %>
+      </div>
+      <div class="purple-button">
+        <%= link_to "view my favourites", favorite_path %>
+      </div>
     </div>
   </div>
+
+  <div class="cards">
+    <% @cats.each do |cat| %>
+      <%= render "cats/cat", cat: cat %>
+    <% end %>
+  </div>
+</div>
