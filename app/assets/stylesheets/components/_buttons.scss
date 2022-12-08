@@ -1,8 +1,9 @@
 .dark-purple-button {
+  border: none;
   border-radius: 8px;
+  height: 40px;
   background-color: $purple-dark;
   padding: 8px 16px 8px 16px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +25,11 @@
 }
 
 .purple-button {
+  border: none;
   border-radius: 8px;
+  height: 40px;
   background-color: $purple;
   padding: 8px 16px 8px 16px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,10 +51,11 @@
 }
 
 .pink-button {
+  height: 40px;
+  border: none;
   border-radius: 8px;
   background-color: $pink;
   padding: 8px 16px 8px 16px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +77,8 @@
 }
 
 .lilac-button {
-  border-radius: 8px;
+  height: 40px;
+  border: none;
   background-color: $purple;
   padding: 8px 16px 8px 16px;
   border-radius: 8px;

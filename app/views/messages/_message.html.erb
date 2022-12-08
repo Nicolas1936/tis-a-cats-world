@@ -1,33 +1,41 @@
 <% if message.user.is_org %>
 
-<div class="individual-messages">
-  <div class="message-bubble-org" id="message-<%= message.id %>">
-    <small>
-      <% if message.user.is_org %>
-        <strong><%= message.user.org_name %> (Organization)</strong>
+  <div class="individual-messages">
+
+    <div class="message-cont" id="message-<%= message.id %>">
+
+      <div class="message-bubble-org">
+        <p><%= message.content %></p>
+        <h6><i><%= message.created_at.strftime("%d/%m at %H:%M") %></i></h6>
+      </div>
+
+      <% if message.user.photo.key.nil? %>
+        <%= image_tag "user.png", class: "chat-avatar" %>
       <% else %>
-        <strong><%= message.user.first_name %></strong>
+        <%= cl_image_tag message.user.photo.key, class: "chat-avatar" %>
       <% end %>
-    </small>
-    <p><%= message.content %></p>
+
+    </div>
   </div>
-  <h6><i><%= message.created_at.strftime("%d/%m at %H:%M") %></i></h6>
-</div>
 
 <% else %>
 
-<div class="individual-messages">
-  <div class="message-bubble-user" id="message-<%= message.id %>">
-    <small>
-      <% if message.user.is_org %>
-        <strong><%= message.user.org_name %></strong>
+  <div class="individual-messages">
+
+    <div class="message-cont" id="message-<%= message.id %>">
+
+      <% if message.user.photo.key.nil? %>
+        <%= image_tag "user.png", class: "chat-avatar" %>
       <% else %>
-        <strong><%= message.user.first_name %></strong>
+        <%= cl_image_tag message.user.photo.key, class: "chat-avatar" %>
       <% end %>
-    </small>
-    <p><%= message.content %></p>
+
+      <div class="message-bubble-user">
+        <p><%= message.content %></p>
+        <h6><i><%= message.created_at.strftime("%d/%m at %H:%M") %></i></h6>
+      </div>
+
+    </div>
   </div>
-  <h6><i><%= message.created_at.strftime("%d/%m at %H:%M") %></i></h6>
-</div>
 
 <% end %>
