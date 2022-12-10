@@ -139,8 +139,6 @@ array_users.each do |user|
   puts "created USER n.#{num}: #{new_user.email}"
   new_user.save!
   num += 1
-
-  break if num > array_users.count
 end
 
 puts "----------------------------"
