@@ -9,5 +9,22 @@
 }
 
 .map-container {
+  display: flex;
+  margin-bottom: 80px;
+  gap: 24px;
+}
+
+.homepage-map {
   border-radius: 8px;
+  box-shadow: $shadow-sm;
+}
+
+.map-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  row-gap: 8px;
+  color: $purple;
 }
