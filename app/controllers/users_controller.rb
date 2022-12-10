@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @cats = @user.cats
+
+    @markers = [{
+        lat: @user.latitude,
+        lng: @user.longitude
+    }]
   end
 
   def edit
