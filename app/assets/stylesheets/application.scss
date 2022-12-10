@@ -23,6 +23,9 @@
 // Import external libraries
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
+// * {
+//   margin: 0;
+// }
 
 .cat-card .fa-heart {
   font-size: 24px !important;
@@ -38,6 +41,10 @@
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+}
+
+p {
+  margin: 0;
 }
 
 a {
