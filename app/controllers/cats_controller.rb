@@ -1,6 +1,14 @@
 class CatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :edit
 
+  def change_is_adopted
+    @cat = Cat.find(params[:id])
+    @cat.is_adopted = !@cat.is_adopted
+
+    @cat.save!
+    redirect_to cat_path(@cat)
+  end
+
   def favorite
     if !current_user
       redirect_to new_user_session_path
