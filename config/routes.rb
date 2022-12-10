@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     member do
       get 'toggle_favorite', to: "cats#toggle_favorite"
+      get 'change_is_adopted', to: "cats#change_is_adopted"
     end
   end
   get 'favorite', to: "cats#favorite"
