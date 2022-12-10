@@ -30,14 +30,14 @@ class CatsController < ApplicationController
   end
 
   def my_cats
-    @cats = Cat.where(user: current_user)
+    @cats = Cat.where(user: current_user).order(:estimated_age)
   end
 
   def index
     if params[:query].present?
-      @cats = Cat.search_cats(params[:query])
+      @cats = Cat.search_cats(params[:query]).order(:estimated_age)
     else
-      @cats = Cat.where(nil) # creates an anonymous scope
+      @cats = Cat.all.order(:estimated_age) # creates an anonymous scope
       @cats = @cats.filter_by_gender(params[:gender]) if params[:gender].present?
       @cats = @cats.filter_by_breed(params[:breed]) if params[:breed].present?
       @cats = @cats.filter_by_location(params[:location]) if params[:location].present?
