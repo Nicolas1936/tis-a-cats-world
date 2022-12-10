@@ -60,7 +60,7 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "The Lone Whisker",
-    address: "Mauritskade 55, 1092 AD Amsterdam",
+    address: "45-H, Vrijheidslaan, 1079 KD, Amsterdam, Netherlands",
     description: "The Lone whisker specialises in international cat adoptions"
   },
   {
@@ -70,17 +70,17 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "Sassy Tails",
-    address: "215 N Moss Rd, Winter Springs, FL 32708, USA",
+    address: "500, Moermanskkade, 1013 BC, Amsterdam, Netherlands",
     description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years"
   },
   {
-    first_name: "Rishabh",
-    last_name: "'Arrow' Agnihotri",
-    email: "agnihotri@lewagon.com",
+    first_name: " ",
+    last_name: " ",
+    email: "meowsandmoos@lewagon.com",
     password: "lewagon",
     is_org: true,
     org_name: "Meows and Moos",
-    address: "Tyagaraj Marg, New Delhi, Delhi 110004, India",
+    address: "466, Van Reigersbergenstraat, 1052 WE, Amsterdam, Netherlands",
     description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons."
   },
   {
@@ -90,7 +90,7 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "So FurTunate",
-    address: "Laat 183, 1811 EE Alkmaar, Netherlands",
+    address: "431, Van Leijenberghlaan, 1082 GL, Amsterdam, Netherlands",
     description: "I have always loved cats. I seem to not be able to stop bringing them home! I live in a mansion, so I decided that I would open the So FURtunate sanctuary, that way I can just keep having cats forever. This is a privately owned and run sanctuary but we are always happy to receive volunteers!"
   },
   {
@@ -100,30 +100,72 @@ array_orgs = [
     password: "lewagon",
     is_org: true,
     org_name: "Don't worry, be Tabby",
-    address: "Ebbehout 22, 1507 EA Zaandam",
+    address: "2, Hekla, 1060 NB, Amsterdam, Netherlands",
     description: "A very chill adoption agency. We believe that a stress free life is the only life a cat should have. We ourselves live by that rule, so come on in and grab one of those complimentary brownies!"
   }
 ]
 
-puts "------------------"
-puts "creating users"
+puts "----------------------------"
+puts "creating USERS"
 puts " "
 
-array_users.each do |user|
-  user_new = User.create!(user)
+num = 0
+images_users = [
+  "#{Rails.root}/app/assets/images/user_profile0.jpg",
+  "#{Rails.root}/app/assets/images/user_profile1.jpg",
+  "#{Rails.root}/app/assets/images/user_profile2.jpg",
+  "#{Rails.root}/app/assets/images/user_profile3.jpg",
+  "#{Rails.root}/app/assets/images/user_profile4.jpg",
+  "#{Rails.root}/app/assets/images/user_profile5.jpg"
+]
 
-  puts "User (#{user_new.email}) created"
+images_orgs = [
+  "#{Rails.root}/app/assets/images/org_profile0.png",
+  "#{Rails.root}/app/assets/images/org_profile1.png",
+  "#{Rails.root}/app/assets/images/org_profile2.png",
+  "#{Rails.root}/app/assets/images/org_profile3.png",
+  "#{Rails.root}/app/assets/images/org_profile4.png"
+]
+
+array_users.each do |user|
+  new_user = User.new(user)
+
+  new_user.photo.attach(
+    filename: "user_profile#{num}.jpg",
+    io: File.open(images_users.shift),
+    content_type: 'image/jpg'
+  )
+
+  puts "created USER n.#{num}: #{new_user.email}"
+  new_user.save!
+  num += 1
+
+  break if num > array_users.count
 end
+
+puts "----------------------------"
+puts "creating ORGANIZATIONS"
+puts " "
 
 org_obj = []
 array_orgs.each do |org|
-  org_new = User.create!(org)
-  org_obj << org_new
-  puts "User (#{org_new.email}) created"
+  new_org = User.new(org)
+
+  new_org.photo.attach(
+    filename: "org_profile#{num}.png",
+    io: File.open(images_orgs.shift),
+    content_type: 'image/png'
+  )
+
+  new_org.save!
+  num += 1
+
+  org_obj << new_org
+
+  puts "created ORG n.#{num}: #{new_org.email}"
 end
 
 # cat_image = "https://images.unsplash.com/photo-1615796153287-98eacf0abb13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
-
 
 cat1 = [
   "https://files.slack.com/files-pri/T02NE0241-F04B9DV7NUF/20220429_111243.jpg?pub_secret=cfd5559254",
@@ -286,8 +328,8 @@ cats_infos = JSON.parse(serialized_cats_infos)
 shuffled_cat_names = cats_infos["name"].shuffle
 
 puts " "
-puts "--------------------"
-puts "creating cats"
+puts "----------------------------"
+puts "creating CATS"
 puts " "
 
 # num_cats = 10
@@ -322,9 +364,9 @@ cats_images.each_with_index do |cat_images, index|
     end
   else
     cat_new.photos.attach(
-    filename: "cat#{index}.jpg",
-    io: URI.open(cat_images)
-  )
+      filename: "cat#{index}.jpg",
+      io: URI.open(cat_images)
+    )
   end
 
   cat_new.save!
@@ -334,5 +376,5 @@ end
 
 puts " "
 puts "----------------------"
-puts "Populated database :)"
+puts "Populated CATabase :)"
 puts "----------------------"
