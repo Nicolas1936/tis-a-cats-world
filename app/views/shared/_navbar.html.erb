@@ -10,24 +10,24 @@
 
     <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <%= link_to "What We Do", cats_path, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "about us", cats_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Find organization", "#", class: "nav-link" %>
+          <%= link_to "organizations", "#", class: "nav-link" %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Adopt Cat", "#", class: "nav-link" %>
+          <%= link_to "adopt", "#", class: "nav-link" %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Lost/Found Pet?", "#", class: "nav-link" %>
+          <%= link_to "lost/found pet?", "#", class: "nav-link" %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Volunteer", "#", class: "nav-link" %>
+          <%= link_to "volunteer", "#", class: "nav-link" %>
         </li>
 
         <li class="nav-item">
@@ -35,21 +35,15 @@
         </li>
       </ul>
 
-      <% if user_signed_in? && current_user.is_org %>
-
-        <li class="nav-item active">
-          <%= link_to "view my cats", cats_my_cats_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "add a new cat", new_cat_path, class: "nav-link" %>
-        </li>
-
-      <% end %>
-
       <% if user_signed_in? %>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown user-greeting">
+          <% if current_user.is_org? %>
+            <p>Hello, <%= current_user.org_name %>!</p>
+          <% else %>
+            <p>Hello, <%= current_user.first_name %>!</p>
+          <% end %>
+
           <% if !current_user.photo.key.nil? %>
             <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
@@ -57,11 +51,18 @@
           <% end %>
 
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+            <% if current_user.is_org? %>
+              <%= link_to "view my cats", cats_my_cats_path, class: "dropdown-item" %>
+              <%= link_to "add a new cat", new_cat_path, class: "dropdown-item" %>
+            <% end %>
+
             <%= link_to "messages", messages_path, class: "dropdown-item" %>
             <%= link_to "profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "edit profile", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "favorites", favorite_path, class: "dropdown-item" %>
             <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+
           </div>
         </li>
 
