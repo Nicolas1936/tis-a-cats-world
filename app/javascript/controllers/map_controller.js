@@ -20,7 +20,6 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
-    console.log("test: ", this.markersValue.length)
     if (this.markersValue.length != 1) {
       this.map.addControl(new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -29,6 +28,9 @@ export default class extends Controller {
     }
 
     this.map.addControl(new mapboxgl.NavigationControl());
+
+    // disable map zoom when using scroll
+    this.map.scrollZoom.disable();
   }
 
   #addMarkersToMap() {
