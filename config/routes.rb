@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   get 'favorite', to: "cats#favorite"
 
-  devise_for :users
+  devise_for :users, path_names: { edit: 'profile' }
   resources :users do
     member do
       post 'connect_chatrooms', to: "users#connect_chatrooms"

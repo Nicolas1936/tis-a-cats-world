@@ -11,7 +11,7 @@
 
 
         <div class="cat-photo-carousel">
-        <% if user_signed_in?%>
+        <% if user_signed_in? && @cat.user != current_user %>
           <%= render "shared/favorite", cat: @cat %>
         <% end %>
           <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
