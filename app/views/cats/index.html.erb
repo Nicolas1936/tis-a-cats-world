@@ -20,7 +20,7 @@
               <% Cat.filter_options.each do |filter| %>
                 <label for=filter> <%= filter.humanize %> </label>
                 <div class="filter-param">
-                  <%= f.select(filter, Cat.all_available_cats_infos(filter).sort,
+                  <%= f.select(filter, Cat.all_available_cats_infos(filter),
                   {
                     :include_blank => "Select",
                     selected: params[filter] ? params[filter] : nil

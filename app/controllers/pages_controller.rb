@@ -5,13 +5,24 @@ class PagesController < ApplicationController
     @last_cats = Cat.order(created_at: :asc).last(4)
     @cats = Cat.all
 
-    @markers = @cats.geocoded.map do |cat|
+    @orgs = User.where(is_org: true)
+
+    @markers = @orgs.geocoded.map do |org|
       {
-        lat: cat.latitude,
-        lng: cat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { cat: cat }),
-        image_url: helpers.asset_url("marker.png")
+        lat: org.latitude,
+        lng: org.longitude,
+        info_window: render_to_string(partial: "info_window_org", locals: { org: org }),
+        image_url: "https://res.cloudinary.com/dg64u5jgj/image/upload/v1/cats_development/aqkoqx6avbgymkwado00nhcete4p.png"
       }
+
+    # @markers = @cats.geocoded.map do |cat|
+    #   {
+    #     lat: cat.latitude,
+    #     lng: cat.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { cat: cat }),
+    #     image_url: helpers.asset_url("marker.png")
+    #   }
+
     end
   end
 end

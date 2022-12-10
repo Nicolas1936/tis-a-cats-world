@@ -57,8 +57,10 @@
           </div>
         </div>
 
-        <% cat_adopted = @cat.is_adopted ? 'Mark as not adopted' : 'Mark as adopted' %>
-        <%= link_to cat_adopted, change_is_adopted_cat_path(@cat), class: "purple-button" %>
+        <% if user_signed_in? && (current_user == @cat.user) %>
+          <% cat_adopted = @cat.is_adopted ? 'Mark as not adopted' : 'Mark as adopted' %>
+          <%= link_to cat_adopted, change_is_adopted_cat_path(@cat), class: "purple-button" %>
+        <% end %>
 
         <div class="cat-info">
 
