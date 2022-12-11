@@ -12,7 +12,7 @@ class PagesController < ApplicationController
         lat: org.latitude,
         lng: org.longitude,
         info_window: render_to_string(partial: "info_window_org", locals: { org: org }),
-        image_url: "https://res.cloudinary.com/dg64u5jgj/image/upload/v1/cats_development/aqkoqx6avbgymkwado00nhcete4p.png"
+        image_url: helpers.asset_url("logo_cat.png")
       }
 
     # @markers = @cats.geocoded.map do |cat|
@@ -22,7 +22,6 @@ class PagesController < ApplicationController
     #     info_window: render_to_string(partial: "info_window", locals: { cat: cat }),
     #     image_url: helpers.asset_url("marker.png")
     #   }
-
     end
   end
 end
