@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
     @markers = [{
         lat: @user.latitude,
-        lng: @user.longitude
+        lng: @user.longitude,
+        image_url: helpers.asset_url("logo_cat.png")
     }]
   end
 
