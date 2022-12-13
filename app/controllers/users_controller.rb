@@ -2,13 +2,19 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @cats = @user.cats
 
-    @markers = [{
-        lat: @user.latitude,
-        lng: @user.longitude,
-        image_url: helpers.asset_url("logo_cat.png")
-    }]
+    if !current_user
+      redirect_to new_user_session_path
+    else
+
+      @cats = @user.cats
+
+      @markers = [{
+          lat: @user.latitude,
+          lng: @user.longitude,
+          image_url: helpers.asset_url("logo_cat.png")
+      }]
+    end
   end
 
   def edit
