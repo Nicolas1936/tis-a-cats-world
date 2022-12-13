@@ -153,6 +153,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_193229) do
     t.text "address"
     t.text "description"
     t.string "org_name"
+    t.string "org_phone_number"
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
