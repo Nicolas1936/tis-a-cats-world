@@ -8,10 +8,13 @@ export default class extends Controller {
     // console.log("Welcome the the FAVORITE Controller")
     // console.log("solid : ", this.solidTarget)
     // console.log("regular : ", this.regularTarget)
+    console.log("aa")
   }
 
   changeStatutFavorite(event) {
+    console.log("bb")
     event.preventDefault()
+
 
     const url = event.currentTarget.href
     const header = {
