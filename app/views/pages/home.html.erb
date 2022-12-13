@@ -49,4 +49,27 @@
     </div>
 
   </div>
+
+  <div class="container card-container">
+    <p>Last cat adopted</p>
+    <div class="homepage-cards">
+        <% @last_cats_adopted.each do |cat| %>
+          <%= render "cats/cat", cat: cat %>
+        <% end %>
+    </div>
+  </div>
+
+
+  <p>Last reviews</p>
+  <% @last_reviews.each do |review| %>
+    <div class="notification">
+      <%= cl_image_tag(review.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large") %>
+      <div class="notification-content">
+        <p><strong><%= review.user.first_name%></strong></p>
+        <p><small><%= review.created_at.strftime("%A, %d %b %Y") %></small></p>
+        <p><%= review.content %></p>
+      </div>
+    </div>
+  <% end %>
+
 </div>
