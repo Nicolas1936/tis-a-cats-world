@@ -1,15 +1,4 @@
-.adopted-sticker {
-  font-family: 'Roboto Slab';
-  font-size: 35px;
-  position: absolute;
-  z-index: 9;
-  right: 0px;
-  background-color: #BB2684;
-  color: white;
-  padding: 8px 16px 8px 16px;
-  border-radius: 8px 0px 0px 8px;
-  top: 16px;
-}
+
 
 .cat-page-container {
   max-width: 1200px;
@@ -24,6 +13,21 @@
   gap: 32px;
 }
 
+// adopted badge on carousel
+.adopted-sticker {
+  font-family: 'Roboto Slab';
+  font-size: 35px;
+  position: absolute;
+  z-index: 9;
+  right: 0px;
+  background-color: #BB2684;
+  color: white;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px 0px 0px 8px;
+  top: 16px;
+}
+
+// photo carousel on cat show page
 .cat-photo-carousel {
   // margin-top: 50px;
   width: 80%;
@@ -38,12 +42,14 @@
 
 }
 
+// info area under carousel
 .cat-info {
   display: flex;
   width: 80%;
   gap: 32px;
 }
 
+// left side - cat details
 .left-info {
   width: 60%;
   gap: 32px;
@@ -63,6 +69,14 @@
   }
 }
 
+// action buttons under cat details - edit, delete, etc
+.cat-page-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+// right side - contact buttons and organization info
 .right-info {
   display: flex;
   flex-direction: column;
@@ -80,7 +94,6 @@
   background-color: $lilac;
   color: $dark-grey;
   width: 100%;
-  height: 100px;
   box-shadow: $shadow-md;
 
   h5 {
@@ -117,6 +130,9 @@
   }
 }
 .org-info:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
   a {
     color: $dark-grey;
   }
@@ -125,7 +141,7 @@
   color: $purple;
   font-size: 18px;
 }
-
+// organization contact details (list)
 .cat-show-org-details {
   display: flex;
   align-items: center;
