@@ -31,10 +31,12 @@
 
 // cat show avatar
 .avatar-large-bordered {
-  width: 80px;
-  height: 80px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   object-fit: cover;
-  border: white 8px solid;
   background-color: white;
+  padding: 8px;
+  border: 5px solid $pink;
+  align-self: center;
 }

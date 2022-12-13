@@ -2,35 +2,26 @@
   <div class="wrapper">
     <div class="cat-page-container">
       <div class="cat-show-page">
-        <% if user_signed_in? && (current_user == @cat.user) %>
-          <%= link_to "edit my cat", edit_cat_path(@cat), class: "purple-button" %>
-          <%= link_to "delete my cat", cat_path(@cat), class: "purple-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <% end %>
 
+        <%# beginning of carousel code %>
         <div class="cat-photo-carousel">
 
+          <%# heart button on carousel %>
+          <% if user_signed_in? && @cat.user != current_user %>
+            <%= render "shared/favorite", cat: @cat %>
+          <% end %>
 
-
-        <% if user_signed_in? && @cat.user != current_user %>
-          <%= render "shared/favorite", cat: @cat %>
-        <% end %>
-
-        <% if @cat.is_adopted %>
-          <div style = "position: relative;">
-            <div class="text-end">
-              <div style = "position: absolute;
-                            z-index: 1;
-                            right: 1px;
-                            background-color: #BB2684;
-                            color: white;
-                            padding: 5px;
-                            border-radius: 5px;
-                            top: 10px;">
-              Is adopted!
+          <%# adopted sticker %>
+          <% if @cat.is_adopted %>
+            <div style = "position: relative;">
+              <div class="text-end">
+                <div class="adopted-sticker">
+                  <p>ADOPTED!</p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+
           <div id="cat-carousel" class="carousel slide" data-bs-interval="15000" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <% @cat.photos.each_with_index do |photo, index| %>
@@ -56,34 +47,47 @@
             </button>
           </div>
         </div>
+        <%# end of carousel code %>
 
-        <% if user_signed_in? && (current_user == @cat.user) %>
-          <% cat_adopted = @cat.is_adopted ? 'Mark as not adopted' : 'Mark as adopted' %>
-          <%= link_to cat_adopted, change_is_adopted_cat_path(@cat), class: "purple-button" %>
-        <% end %>
-
+        <%# info section under carousel %>
         <div class="cat-info">
 
+          <%# left side page section %>
           <div class="left-info">
             <div class="cat-details">
-              <h2><%= @cat.name %></h2>
+              <h2><%= @cat.name.upcase %></h2>
               <p><%= @cat.breed %>, <%= @cat.gender %></p>
 
-              <% if @cat.is_adopted? %>
-                <strong><h6>ADOPTED</h6></strong>
+              <hr>
+              <h4 style="color: #7D6DAD">health</h4>
+              <p>estimated age: <%= @cat.estimated_age %></p>
+              <p>vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
+              <p>neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
+              <hr>
+              <h4 style="color: #7D6DAD">about me</h4>
+              <p><%= @cat.description %></p>
+            </div>
+
+            <%# buttons: back - mark as adopted - edit cat - delete cat %>
+            <div class="cat-page-buttons">
+              <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
+
+              <% if user_signed_in? && (current_user == @cat.user) %>
+                <% cat_adopted = @cat.is_adopted ? 'unmark as adopted' : 'mark as adopted' %>
+                <%= link_to cat_adopted, change_is_adopted_cat_path(@cat), class: "pink-button" %>
               <% end %>
 
-              <hr>
-              <h5>Health</h4>
-              <p>Estimated age: <%= @cat.estimated_age %></p>
-              <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
-              <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
-              <hr>
-              <p><%= @cat.description %></p>
+              <% if user_signed_in? && (current_user == @cat.user) %>
+                <%= link_to "edit my cat", edit_cat_path(@cat), class: "lilac-button" %>
+                <%= link_to "delete my cat", cat_path(@cat), class: "lilac-button", data: {turbo_method: :delete, turbo_confirm: "are you sure?"} %>
+              <% end %>
             </div>
           </div>
 
+          <%# right side page section %>
           <div class="right-info">
+
+            <%# action card - adopt - foster %>
             <div class="adoption-info">
               <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
               <div class="adoption-info-buttons">
@@ -92,16 +96,16 @@
               </div>
             </div>
 
-            <div class="org-info">
+            <%# organization info card %>
+            <%= link_to user_path(@cat.user) do %>
+              <div class="org-info">
+                <%# profile picture %>
+                <% if !@cat.user.photo.key.nil? %>
+                  <%= cl_image_tag @cat.user.photo.key, height: 300, width: 400, crop: :fit, class: "avatar-large-bordered" %>
+                <% end %>
 
-                  <% if !@cat.user.photo.key.nil? %>
-                  <%# scale, fit, fill, limit, pad, crop. %>
-                    <%= cl_image_tag @cat.user.photo.key, height: 300, width: 400, crop: :fit, class: "avatar-large-bordered" %>
-                  <% end %>
+                <h3><%= @cat.user.org_name %></h3>
 
-              <%= link_to user_path(@cat.user) do %>
-                <h2><%= @cat.user.org_name %></h2>
-                <hr>
                 <div class="cat-show-org-details">
                   <i class="fa-solid fa-location-dot"></i>
                   <%= @cat.user.address %>
@@ -111,13 +115,20 @@
                   <i class="fa-solid fa-envelope"></i>
                   <%= @cat.user.email %>
                 </div>
-              <% end %>
-            </div>
+
+                <div class="cat-show-org-details">
+                  <i class="fa-solid fa-phone"></i>
+                  <%= @cat.user.org_phone_number %>
+                </div>
+
+              </div>
+            <% end %>
+
           </div>
         </div>
 
 
-      <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
+
       </div>
     </div>
   </div>
