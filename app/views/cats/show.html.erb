@@ -87,7 +87,7 @@
             <div class="adoption-info">
               <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
               <div class="adoption-info-buttons">
-                <%= link_to "Contact the Organization", connect_chatrooms_user_path, data: {turbo_method: :post} %>
+                <%= link_to "Contact the Organization", connect_chatrooms_user_path(@cat.user), data: {turbo_method: :post} %>
                 <%= link_to "I want to foster", "#"%>
               </div>
             </div>
