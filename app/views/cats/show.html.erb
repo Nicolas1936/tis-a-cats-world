@@ -89,10 +89,10 @@
 
             <%# action card - adopt - foster %>
             <div class="adoption-info">
-              <h5 style="color: #554780">Are you interested?</strong></h5>
-              <div class="adoption-info-buttons" style="width: 100%; display: flex">
-                <%= link_to "ADOPT", connect_chatrooms_user_path(@cat.user), data: {turbo_method: :post}, class: "purple-button", style: "color: white; flex-grow: 1" %>
-                <%= link_to "FOSTER", "#", class: "dark-purple-button", style: "color: white; flex-grow: 1"%>
+              <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
+              <div class="adoption-info-buttons">
+                <%= link_to "Contact the Organization", connect_chatrooms_user_path(@cat.user), data: {turbo_method: :post} %>
+                <%= link_to "I want to foster", "#"%>
               </div>
             </div>
 
