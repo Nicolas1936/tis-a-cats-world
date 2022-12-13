@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         lat: org.latitude,
         lng: org.longitude,
         info_window: render_to_string(partial: "info_window_org", locals: { org: org }),
-        image_url: helpers.asset_url("logo_cat.png")
+        image_url: helpers.asset_url("marker.png")
       }
     end
   end
