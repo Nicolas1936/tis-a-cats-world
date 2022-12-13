@@ -6,10 +6,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: fit-content;
+  // height: fit-content;
   font-size: 16px;
-  color: rgb(45, 44, 44);
-  // color: rgba(0,0,0,0.3);
+  color: $dark-grey;
+
   a {
     color: $purple;
   }
@@ -22,7 +22,7 @@
 }
 .page-container {
   display: grid;
-  min-height: 200vh;
+  min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
 

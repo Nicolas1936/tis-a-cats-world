@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
     @last_cats = Cat.order(created_at: :asc).last(4)
@@ -21,5 +21,12 @@ class PagesController < ApplicationController
   end
 
   def about_us
+  end
+
+  def organizations
+    @orgs = User.where(is_org: true)
+  end
+
+  def faq
   end
 end

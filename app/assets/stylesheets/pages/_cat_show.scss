@@ -118,6 +118,7 @@
   flex-direction: column;
   row-gap: 16px;
   color: $dark-grey;
+  margin-bottom: 50px;
 
   a {
     color: $dark-grey;
@@ -141,7 +142,8 @@
   color: $purple;
   font-size: 18px;
 }
-// organization contact details (list)
+
+// individual details in organization contact details (list)
 .cat-show-org-details {
   display: flex;
   align-items: center;
