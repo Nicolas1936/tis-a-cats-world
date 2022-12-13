@@ -18,15 +18,8 @@
         <% if @cat.is_adopted %>
           <div style = "position: relative;">
             <div class="text-end">
-              <div style = "position: absolute;
-                            z-index: 1;
-                            right: 1px;
-                            background-color: #BB2684;
-                            color: white;
-                            padding: 5px;
-                            border-radius: 5px;
-                            top: 10px;">
-              Is adopted!
+              <div class="adopted-sticker">
+                <p>ADOPTED!</p>
               </div>
             </div>
           </div>
@@ -66,53 +59,56 @@
 
           <div class="left-info">
             <div class="cat-details">
-              <h2><%= @cat.name %></h2>
+              <h2><%= @cat.name.upcase %></h2>
               <p><%= @cat.breed %>, <%= @cat.gender %></p>
 
-              <% if @cat.is_adopted? %>
-                <strong><h6>ADOPTED</h6></strong>
-              <% end %>
-
               <hr>
-              <h5>Health</h4>
-              <p>Estimated age: <%= @cat.estimated_age %></p>
-              <p>Vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
-              <p>Neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
+              <h4 style="color: #7D6DAD">health</h4>
+              <p>estimated age: <%= @cat.estimated_age %></p>
+              <p>vaccinated: <%= @cat.is_vaccinated? ? "Yes" : "No" %></p>
+              <p>neutered: <%= @cat.is_neutered? ? "Yes" : "No"  %></p>
               <hr>
+              <h4 style="color: #7D6DAD">about me</h4>
               <p><%= @cat.description %></p>
             </div>
           </div>
 
           <div class="right-info">
             <div class="adoption-info">
-              <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
-              <div class="adoption-info-buttons">
-                <%= link_to "Contact the Organization", connect_chatrooms_user_path, data: {turbo_method: :post} %>
-                <%= link_to "I want to foster", "#"%>
+              <h5 style="color: #554780">Are you interested?</strong></h5>
+              <div class="adoption-info-buttons" style="width: 100%; display: flex">
+                <%= link_to "ADOPT", connect_chatrooms_user_path(@cat.user), data: {turbo_method: :post}, class: "purple-button", style: "color: white; flex-grow: 1" %>
+                <%= link_to "FOSTER", "#", class: "dark-purple-button", style: "color: white; flex-grow: 1"%>
               </div>
             </div>
 
+          <%= link_to user_path(@cat.user) do %>
             <div class="org-info">
 
-                  <% if !@cat.user.photo.key.nil? %>
-                  <%# scale, fit, fill, limit, pad, crop. %>
-                    <%= cl_image_tag @cat.user.photo.key, height: 300, width: 400, crop: :fit, class: "avatar-large-bordered" %>
-                  <% end %>
-
-              <%= link_to user_path(@cat.user) do %>
-                <h2><%= @cat.user.org_name %></h2>
-                <hr>
-                <div class="cat-show-org-details">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <%= @cat.user.address %>
-                </div>
-
-                <div class="cat-show-org-details">
-                  <i class="fa-solid fa-envelope"></i>
-                  <%= @cat.user.email %>
-                </div>
+              <% if !@cat.user.photo.key.nil? %>
+              <%# scale, fit, fill, limit, pad, crop. %>
+                <%= cl_image_tag @cat.user.photo.key, height: 300, width: 400, crop: :fit, class: "avatar-large-bordered" %>
               <% end %>
+
+              <h3><%= @cat.user.org_name %></h3>
+
+              <div class="cat-show-org-details">
+                <i class="fa-solid fa-location-dot"></i>
+                <%= @cat.user.address %>
+              </div>
+
+              <div class="cat-show-org-details">
+                <i class="fa-solid fa-envelope"></i>
+                <%= @cat.user.email %>
+              </div>
+
+              <div class="cat-show-org-details">
+                <i class="fa-solid fa-phone"></i>
+                <%= @cat.user.org_phone_number %>
+              </div>
+
             </div>
+          <% end %>
           </div>
         </div>
 
