@@ -87,12 +87,18 @@
             <div class="adoption-info">
               <p>Are you interested in <strong><%= @cat.name %>?</strong></p>
               <div class="adoption-info-buttons">
-                <p>message <%= @cat.user.org_name %> </p>
-                <p>I want to foster</p>
+                <%= link_to "Contact the Organization", connect_chatrooms_user_path, data: {turbo_method: :post} %>
+                <%= link_to "I want to foster", "#"%>
               </div>
             </div>
 
             <div class="org-info">
+
+                  <% if !@cat.user.photo.key.nil? %>
+                  <%# scale, fit, fill, limit, pad, crop. %>
+                    <%= cl_image_tag @cat.user.photo.key, height: 300, width: 400, crop: :fit, class: "avatar-large-bordered" %>
+                  <% end %>
+
               <%= link_to user_path(@cat.user) do %>
                 <h2><%= @cat.user.org_name %></h2>
                 <hr>
