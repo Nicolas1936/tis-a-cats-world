@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   get "about_us", to: "pages#about_us"
 
+  get "organizations", to: "pages#organizations"
+
+  get "faq", to: "pages#faq"
+
   get "cats/my_cats", to: "cats#my_cats"
 
   resources :cats do

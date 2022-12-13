@@ -49,6 +49,62 @@ array_users = [
     email: "vic@lewagon.com",
     password: "lewagon",
     is_org: false
+  },
+  {
+    first_name: "Isaac",
+    last_name: "Mewton",
+    email: "isaac@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Fleur",
+    last_name: "Delacour",
+    email: "fleur@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Ichigo",
+    last_name: "Kurosaki",
+    email: "ichigo@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Mary",
+    last_name: "Poppins",
+    email: "mary@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Light",
+    last_name: "Yagami",
+    email: "light@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Jack",
+    last_name: "Napier",
+    email: "napier@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Vlad",
+    last_name: "Tepes",
+    email: "vlad@lewagon.com",
+    password: "lewagon",
+    is_org: false
+  },
+  {
+    first_name: "Tupac",
+    last_name: "Shakur",
+    email: "2pac@lewagon.com",
+    password: "lewagon",
+    is_org: false
   }
 ]
 
@@ -83,7 +139,7 @@ array_orgs = [
     is_org: true,
     org_name: "Meows and Moos",
     address: "466, Van Reigersbergenstraat, 1052 WE, Amsterdam, Netherlands",
-    description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons.",
+    description: "We are a non-profit organization that believes in rescuing cats and cows. To date we operate in four cities. We depend solely on the donations of our patrons.",
     org_phone_number: "202-555-0124"
   },
   {
@@ -121,7 +177,15 @@ images_users = [
   "#{Rails.root}/app/assets/images/user_profile2.jpg",
   "#{Rails.root}/app/assets/images/user_profile3.jpg",
   "#{Rails.root}/app/assets/images/user_profile4.jpg",
-  "#{Rails.root}/app/assets/images/user_profile5.jpg"
+  "#{Rails.root}/app/assets/images/user_profile5.jpg",
+  "#{Rails.root}/app/assets/images/user_profile6.jpg",
+  "#{Rails.root}/app/assets/images/user_profile7.jpg",
+  "#{Rails.root}/app/assets/images/user_profile8.jpg",
+  "#{Rails.root}/app/assets/images/user_profile9.jpg",
+  "#{Rails.root}/app/assets/images/user_profile10.jpg",
+  "#{Rails.root}/app/assets/images/user_profile11.jpg",
+  "#{Rails.root}/app/assets/images/user_profile12.jpg",
+  "#{Rails.root}/app/assets/images/user_profile13.jpg"
 ]
 
 images_orgs = [
@@ -141,7 +205,7 @@ array_users.each do |user|
     content_type: 'image/jpg'
   )
 
-  puts "created USER n.#{num}: #{new_user.email}"
+  puts "created USER n.#{num}: #{new_user.first_name} #{new_user.last_name}"
   new_user.save!
   num += 1
 end
@@ -165,7 +229,7 @@ array_orgs.each do |org|
 
   org_obj << new_org
 
-  puts "created ORG n.#{num}: #{new_org.email}"
+  puts "created ORG n.#{num}: #{new_org.org_name}"
 end
 
 # cat_image = "https://images.unsplash.com/photo-1615796153287-98eacf0abb13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
@@ -346,7 +410,7 @@ cats_images.each_with_index do |cat_images, index|
     location: "Amsterdam",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false].sample,
-    is_adopted: [true, false].sample,
+    is_adopted: [true, false].sample(6),
     adoption_date: DateTime.new(
                       (2019..2022).to_a.sample,
                       (1..10).to_a.sample,
