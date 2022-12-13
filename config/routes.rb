@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
+
+
   get "cats/my_cats", to: "cats#my_cats"
   resources :cats do
     collection do
@@ -32,4 +34,8 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:destroy]
+
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server'
+  get '/422', to: 'errors#unprocessable'
 end

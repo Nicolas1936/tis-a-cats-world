@@ -62,7 +62,7 @@ array_orgs = [
     org_name: "The Lone Whisker",
     address: "45-H, Vrijheidslaan, 1079 KD, Amsterdam, Netherlands",
     description: "The Lone whisker specialises in international cat adoptions",
-    org_phone_number: Faker::PhoneNumber.cell_phone
+    org_phone_number: "202-555-0180"
   },
   {
     first_name: "",
@@ -73,7 +73,7 @@ array_orgs = [
     org_name: "Sassy Tails",
     address: "500, Moermanskkade, 1013 BC, Amsterdam, Netherlands",
     description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years",
-    org_phone_number: Faker::PhoneNumber.cell_phone
+    org_phone_number: "202-555-0172"
   },
   {
     first_name: " ",
@@ -84,7 +84,7 @@ array_orgs = [
     org_name: "Meows and Moos",
     address: "466, Van Reigersbergenstraat, 1052 WE, Amsterdam, Netherlands",
     description: "We are a non-profit organisation that believe in rescuing cats and cows. To date we operate in four cities. We work purely on donations of our patrons.",
-    org_phone_number: Faker::PhoneNumber.cell_phone
+    org_phone_number: "202-555-0124"
   },
   {
     first_name: "Isaac",
@@ -95,7 +95,7 @@ array_orgs = [
     org_name: "So FurTunate",
     address: "431, Van Leijenberghlaan, 1082 GL, Amsterdam, Netherlands",
     description: "I have always loved cats. I seem to not be able to stop bringing them home! I live in a mansion, so I decided that I would open the So FURtunate sanctuary, that way I can just keep having cats forever. This is a privately owned and run sanctuary but we are always happy to receive volunteers!",
-    org_phone_number: Faker::PhoneNumber.cell_phone
+    org_phone_number: "202-555-0162"
   },
   {
     first_name: "",
@@ -106,7 +106,7 @@ array_orgs = [
     org_name: "Don't worry, be Tabby",
     address: "2, Hekla, 1060 NB, Amsterdam, Netherlands",
     description: "A very chill adoption agency. We believe that a stress free life is the only life a cat should have. We ourselves live by that rule, so come on in and grab one of those complimentary brownies!",
-    org_phone_number: Faker::PhoneNumber.cell_phone
+    org_phone_number: "202-555-0116"
   }
 ]
 
