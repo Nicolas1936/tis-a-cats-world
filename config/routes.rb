@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-
+  get "about_us", to: "pages#about_us"
 
   get "cats/my_cats", to: "cats#my_cats"
+
   resources :cats do
     collection do
       get :home
