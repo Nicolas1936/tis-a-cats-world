@@ -4,6 +4,16 @@
       <%= render "shared/favorite", cat: cat %>
     <% end %>
 
+    <% if cat.is_adopted %>
+      <div style = "position: relative;">
+        <div class="text-end">
+          <div class="thumbnail-adopted-sticker">
+            <p style="color: white">ADOPTED!</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <%= link_to cat_path(cat) do %>
       <%= cl_image_tag cat.photos.first.key, height: 300, width: 400, crop: :fill %>
       <div class="cat-card-infos">

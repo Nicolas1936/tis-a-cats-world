@@ -410,7 +410,7 @@ cats_images.each_with_index do |cat_images, index|
     location: "Amsterdam",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false].sample,
-    is_adopted: [true, false].sample,
+    is_adopted: [true, false, false, false].sample,
     adoption_date: DateTime.new(
                       (2019..2022).to_a.sample,
                       (1..10).to_a.sample,

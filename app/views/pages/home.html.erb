@@ -24,7 +24,7 @@
 <div class="container">
 
   <%# latest cats for adoption %>
-  <div class="container card-container">
+  <div class="card-container">
 
     <h4>latest cats for adoption</h4>
     <div class="homepage-cards">
@@ -44,25 +44,23 @@
 
   </div>
 
-    <%# organizations map %>
-    <div class="map-container">
-      <div class="map-title">
-        <h4>find an organization</h4>
-        <%= image_tag "map.png", id: "map-illustration" %>
-      </div>
-
-      <div class="homepage-map" style="width: 85%; height: 300px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+  <%# organizations map %>
+  <div class="map-container">
+    <div class="map-title">
+      <h4>find an organization</h4>
+      <%= image_tag "map.png", id: "map-illustration" %>
     </div>
 
+    <div class="homepage-map" style="width: 85%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 
   <%# recently adopted cats - 5 last cats %>
-  <div class="container card-container">
-    <h4>recently adopted cats</h4>
+  <div class="card-container">
+    <h4 style="text-align: center">recently adopted cats</h4>
     <div class="homepage-cards">
         <% @last_cats_adopted.each do |cat| %>
           <%= render "cats/cat", cat: cat %>
@@ -71,20 +69,35 @@
   </div>
 
   <%# adoption testimonials - cards %>
-  <p>success stories</p>
-  <% @last_reviews.each do |review| %>
-    <div class="notification">
-      <%= cl_image_tag(review.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large") %>
-      <div class="notification-content">
-        <% if review.user.is_org? %>
-          <p><strong> <%= review.user.org_name %> </strong></p>
-        <% else %>
-          <p><strong><%= review.user.first_name %> <%= review.user.last_name %></strong></p>
-          <p><small><%= review.created_at.strftime("%A, %d %b %Y") %></small></p>
-        <% end %>
-        <p><%= review.content %></p>
-      </div>
-    </div>
-  <% end %>
+  <h4>adoption stories</h4>
+  <div class="user-adoption-stories">
+
+    <% @last_reviews.each do |review| %>
+
+        <div class="review">
+          <div class="review-user-details">
+
+            <%= cl_image_tag(review.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-xl") %>
+
+            <div class="username-created-at">
+              <% if review.user.is_org? %>
+                <p><strong> <%= review.user.org_name %> </strong></p>
+              <% else %>
+                <p><strong><%= review.user.first_name %> <%= review.user.last_name %></strong></p>
+                <p><small><%= review.created_at.strftime("%d %b %Y") %></small></p>
+              <% end %>
+            </div>
+
+          </div>
+
+          <div class="review-content">
+            <p><%= review.content %></p>
+          </div>
+
+        </div>
+
+    <% end %>
+
+  </div>
 
 </div>
