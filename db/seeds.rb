@@ -405,12 +405,12 @@ cats_images.each_with_index do |cat_images, index|
   cat = {
     name: shuffled_cat_names.pop,
     breed: cats_infos["breed"].sample,
-    description: Faker::Quotes::Shakespeare.hamlet_quote,
+    description: cats_infos["description"].sample,
     user: User.where(is_org: true).sample,
     location: "Amsterdam",
     is_vaccinated: [true, false].sample,
     is_neutered: [true, false].sample,
-    is_adopted: [true, false].sample(6),
+    is_adopted: [true, false].sample,
     adoption_date: DateTime.new(
                       (2019..2022).to_a.sample,
                       (1..10).to_a.sample,

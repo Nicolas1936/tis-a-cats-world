@@ -1,23 +1,51 @@
-// Specific CSS for your home-page
-
-.org-banner {
+// if user is an organization, profile banner
+.profile-banner {
   background-color:$lilac;
-  height: 300px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 24px;
-  margin-bottom: 64px;
+  padding: 100px 40px 40px 40px;
 
-  p {
-    opacity: 0.7;
-    font-size: 17px;
+  h1 {
+    color: $purple;
+    margin: 0;
   }
 }
+.org-profile-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  padding: 8px;
+  border: 5px solid $purple;
+  margin-bottom: 24px;
+}
 
-.org-banner-logo {
-  font-size: 80px;
-  margin-bottom: 8px;
+// profile buttons - contact - edit
+.profile-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+// organization profile info container
+.org-profile-info {
+  display: flex;
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: $shadow-md;
+  gap: 20%;
+  margin-bottom: 50px;
+}
+// organization address map
+.user-profile-map {
+  border-radius: 8px;
+}
+
+.org-profile-details {
+  display: flex;
+  flex-direction: column;
 }

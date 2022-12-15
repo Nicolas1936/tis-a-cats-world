@@ -23,22 +23,25 @@
 <%# homepage content %>
 <div class="container">
 
-  <%# recently adopted cats %>
+  <%# latest cats for adoption %>
   <div class="container card-container">
-    <div class="homepage-cards">
-        <% @last_cats.each do |cat| %>
-          <%= render "cats/cat", cat: cat %>
-        <% end %>
 
-        <%# link to cat index button %>
-        <div class="cat-card-button">
-          <%= link_to cats_path do %>
-            <i class="fa-solid fa-paw button-paw"></i>
-            <p><%= @cats.count %> cats available for adoption</p>
-            <h5>VIEW ALL CATS</h5>
-          <% end %>
-        </div>
+    <h4>latest cats for adoption</h4>
+    <div class="homepage-cards">
+      <% @cats_for_adoption.each do |cat| %>
+        <%= render "cats/cat", cat: cat %>
+      <% end %>
+
+      <%# link to cat index button %>
+      <div class="cat-card-button">
+        <%= link_to cats_path do %>
+          <i class="fa-solid fa-paw button-paw"></i>
+          <p><%= @cats.count %> cats available for adoption</p>
+          <h5>VIEW ALL CATS</h5>
+        <% end %>
+      </div>
     </div>
+
   </div>
 
     <%# organizations map %>
@@ -59,7 +62,7 @@
 
   <%# recently adopted cats - 5 last cats %>
   <div class="container card-container">
-    <p>recently adopted cats</p>
+    <h4>recently adopted cats</h4>
     <div class="homepage-cards">
         <% @last_cats_adopted.each do |cat| %>
           <%= render "cats/cat", cat: cat %>
