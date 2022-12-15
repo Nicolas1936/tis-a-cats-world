@@ -1,24 +1,39 @@
-// Specific CSS for your home-page
-.notification {
+// review container
+.user-adoption-stories {
+  background-color: $purple;
+  padding: 40px;
+  margin-bottom: 100px;
+  border-radius: 8px;
+
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  box-shadow: $shadow-lg;
+}
+
+// review card
+.review {
+  background-color: $lilac;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 8px;
-  background: white;
-  padding: 8px 16px;
-  border: 1px solid rgb(235, 235, 235);
+  row-gap: 16px;
+  border-radius: 8px;
+  padding: 16px 24px 16px 24px;
 }
-
-.notification .notification-content {
-  flex-grow: 1;
-  padding: 0 24px;
-}
-
-.notification p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.notification small {
+.review small {
   color: #999999;
   font-weight: bold;
+}
+
+// user first and last name or org name + created at
+.review-user-details {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 16px;
+}
+.username-created-at {
+  display: flex;
+  flex-direction: column;
 }

@@ -29,6 +29,7 @@ class Cat < ApplicationRecord
   scope :filter_by_location, ->(location) { where location: location }
   scope :filter_by_coat_colour, ->(coat_colour) { where coat_colour: coat_colour }
   scope :filter_by_estimated_age, ->(estimated_age) { where estimated_age: estimated_age }
+  scope :filter_by_is_adopted, ->(is_adopted) { where is_adopted: is_adopted }
 
   pg_search_scope :search_cats,
     against: [
@@ -37,14 +38,15 @@ class Cat < ApplicationRecord
       :description,
       :gender,
       :location,
-      :coat_colour
+      :coat_colour,
+      :is_adopted
     ],
     associated_against: { user: [:org_name] },
     using: {
       tsearch: { prefix: true }
     }
 
-  FILTER_OPTIONS = ["gender", "breed", "location", "coat_colour", "estimated_age"].freeze
+  FILTER_OPTIONS = ["gender", "breed", "location", "coat_colour", "estimated_age", "is_adopted"].freeze
 
   def self.all_available_cats_infos(filter)
     Cat.all.map { |cat| cat.send(filter) }.uniq

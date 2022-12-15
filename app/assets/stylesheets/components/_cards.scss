@@ -1,13 +1,13 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0px auto;
   margin-bottom: 80px;
   padding: 0;
   list-style: none;
-  grid-gap: 20px;
 }
 .homepage-cards {
   display: grid;
@@ -111,7 +111,7 @@
 
 .thumbnail-adopted-sticker {
   font-family: 'Roboto Slab';
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
   z-index: 9;
   right: 0px;

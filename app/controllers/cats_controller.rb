@@ -43,6 +43,7 @@ class CatsController < ApplicationController
       @cats = @cats.filter_by_location(params[:location]) if params[:location].present?
       @cats = @cats.filter_by_coat_colour(params[:coat_colour]) if params[:coat_colour].present?
       @cats = @cats.filter_by_estimated_age(params[:estimated_age]) if params[:estimated_age].present?
+      @cats = @cats.filter_by_is_adopted(params[:is_adopted]) if params[:is_adopted].present?
     end
   end
 
