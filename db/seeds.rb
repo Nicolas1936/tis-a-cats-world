@@ -210,6 +210,21 @@ array_users.each do |user|
   num += 1
 end
 
+puts "Create Reviews"
+
+Review.create!(content: "Thanks to Sassy Paws I finally found my BEST friend! Alakazam has been part of our family since 2018 and we couldn't be happier!", user: User.find_by(email: "light@lewagon.com"))
+
+Review.create!(content: "When I saw Mauritz I thought he hated me. He still does, but he can do it from
+the comfort of a warm home and cosy bed.", user: User.find_by(email: "vlad@lewagon.com"))
+
+Review.create!(content: "Just a baby when I adopted him! He now weighs over 12kg and I suspect him of being part Maine Coon.... I call him Chonks now.", user: User.find_by(email: "2pac@lewagon.com"))
+
+Review.create!(content: "Abigail is not a fan of other humans but she will lay on my lap all day. I love her to bits! So glad I adopted her.", user: User.find_by(email: "napier@lewagon.com"))
+
+puts "End Reviews"
+
+
+
 puts "----------------------------"
 puts "creating ORGANIZATIONS"
 puts " "
