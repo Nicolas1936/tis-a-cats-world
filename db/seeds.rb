@@ -420,6 +420,7 @@ cats_images.each_with_index do |cat_images, index|
     gender: ['male', 'female'].sample,
     coat_colour: cats_infos["coat_colour"].sample
   }
+
   cat_new = Cat.new(cat)
 
   if cat_images.kind_of?(Array)
