@@ -4,8 +4,9 @@ class PagesController < ApplicationController
   def home
     @last_cats = Cat.order(created_at: :asc).last(4)
     @cats = Cat.all
+    @cats_for_adoption = Cat.where(is_adopted: false).order(created_at: :asc).last(4)
 
-    @last_cats_adopted = Cat.where(is_adopted: true).order(adoption_date: :desc).first(4)
+    @last_cats_adopted = Cat.where(is_adopted: true).order(created_at: :asc).last(5)
     @last_reviews = Review.order(created_at: :desc).first(4)
 
     @orgs = User.where(is_org: true)

@@ -1,33 +1,70 @@
+
+<%# banner with name and logo - if user is an organization %>
 <% if @user.is_org? %>
-  <div class="org-banner"></i>
-    <h3><%=  @user.org_name%></h3>
-    <p><%=  @user.description%></p>
+  <div class="profile-banner">
+    <% if !@user.photo.key.nil? %>
+
+      <p><%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fit, class: "org-profile-logo" %></p>
+    <% end %>
+    <h1><%= @user.org_name.upcase %></h1>
+
+    <div class="profile-buttons">
+      <% if current_user.is_org %>
+        <%= link_to "edit profile", edit_user_path(@user), class: "btn purple-button" %>
+      <% end %>
+      <%# DELETE USER BUTTON HERE? %>
+    </div>
   </div>
 
+  <%# page contents %>
   <div class="container">
-    <% if !@user.photo.key.nil? %>
-      <%# scale, fit, fill, limit, pad, crop. %>
-      <p><%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fit %></p>
-    <% end %>
-    <h3><%= @user.org_name %></h3>
-    <% if !current_user.is_org %>
-      <%= link_to "Contact the Organization", connect_chatrooms_user_path, data: {turbo_method: :post} %>
-    <% else %>
-      <%# <p>You cannot contact the organization</p> %>
-      <%= link_to "Edit", edit_user_path(@user), class: "btn purple-button", style: "width: 100px;" %>
-    <% end %>
-    <p><b>Address : </b><%=  @user.address%></p>
-    <div style="width: 80%; height: 200px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+    <%# organization details and info - location, address, etc + contact button %>
+    <div class="org-profile-info">
+
+
+      <div class="org-profile-details">
+        <p style="margin-bottom: 24px"><%=  @user.description%></p>
+
+        <div class="profile-details">
+          <i class="fa-solid fa-location-dot"></i>
+          <%= @user.address %>
+        </div>
+
+        <div class="profile-details">
+          <i class="fa-solid fa-envelope"></i>
+          <%= @user.email %>
+        </div>
+
+        <div class="profile-details">
+          <i class="fa-solid fa-phone"></i>
+          <%= @user.org_phone_number %>
+        </div>
+
+        <% if !current_user.is_org %>
+          <%= link_to "contact us!", connect_chatrooms_user_path, data: {turbo_method: :post}, class: "purple-button", style: "width: 200px; margin-top: 24px" %>
+        <% end %>
+      </div>
+
+      <%# org address map %>
+      <div style="width: 40%" class="user-profile-map"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
     </div>
 
-    <div class="cards mt-3">
-      <% @cats.each do |cat| %>
-        <%= render "cats/cat", cat: cat %>
-      <% end %>
+
+    <div class="org-profile-cats">
+      <h3>our cats</h3>
+      <div class="cards">
+        <% @cats.each do |cat| %>
+          <%= render "cats/cat", cat: cat %>
+        <% end %>
+      </div>
     </div>
+
   </div>
 
 <% else %>
