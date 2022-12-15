@@ -109,6 +109,24 @@
 }
 
 
+.thumbnail-adopted-sticker {
+  font-family: 'Roboto Slab';
+  font-size: 20px;
+  position: absolute;
+  z-index: 9;
+  right: 0px;
+  background-color: $pink;
+  color: white;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px 0px 0px 8px;
+  top: 16px;
+
+  a {
+    color: white;
+  }
+}
+
+
 @media(max-width: 1024px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
