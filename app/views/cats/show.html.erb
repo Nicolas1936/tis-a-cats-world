@@ -7,10 +7,7 @@
         <div class="cat-photo-carousel">
 
           <%# heart button on carousel %>
-          <% if user_signed_in? && @cat.user != current_user %>
-            <%= render "shared/favorite", cat: @cat %>
-          <% end %>
-
+          <%= render "shared/favorite", cat: @cat %>
           <%# adopted sticker %>
           <% if @cat.is_adopted %>
             <div style = "position: relative;">
