@@ -1,3 +1,4 @@
+// ORGANIZATION PROFILE
 // if user is an organization, profile banner
 .profile-banner {
   background-color:$lilac;
@@ -33,19 +34,72 @@
 // organization profile info container
 .org-profile-info {
   display: flex;
+  justify-content: space-between;
   background-color: white;
-  padding: 24px;
+  padding: 40px 60px 40px 60px;
   border-radius: 8px;
   box-shadow: $shadow-md;
-  gap: 20%;
+  gap: 24px;
   margin-bottom: 50px;
 }
 // organization address map
+.org-profile-details {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.profile-details {
+  display: flex;
+  gap: 8px;
+}
+
 .user-profile-map {
   border-radius: 8px;
 }
 
-.org-profile-details {
+
+// USER PROFILE
+
+.user-profile-container {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: $shadow-md;
+}
+
+// user picture and name
+.user-name-details {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 16px 0 32px 0;
+}
+.user-first-last-name {
   display: flex;
   flex-direction: column;
+  row-gap: 8px;
+
+  h1 {
+    align-self: flex-start;
+    margin: 0;
+    color: $purple;
+  }
+}
+
+
+.user-profile-adoption-stories {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: left;
+  margin: 24px 0 24px 0;
+}
+
+// edit - delete - back etc -- all links
+.user-profile-links {
+  display: flex;
+  gap: 8px;
 }

@@ -37,3 +37,22 @@
   display: flex;
   flex-direction: column;
 }
+
+// media queries for responsive design
+@media(max-width: 1024px) {
+  .user-adoption-stories {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .user-adoption-stories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 480px) {
+  .user-adoption-stories {
+    grid-template-columns: 1fr;
+  }
+}

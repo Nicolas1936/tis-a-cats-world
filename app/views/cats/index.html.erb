@@ -16,7 +16,7 @@
         <hr>
 
         <div class="filters">
-          <%= form_with url: cats_path, method: :get, class: "" do |f| %>
+          <%= form_with url: cats_path, method: :get, class: "filters-form" do |f| %>
               <% Cat.filter_options.each do |filter| %>
                 <label for=filter> <%= filter.humanize %> </label>
                 <div class="filter-param">

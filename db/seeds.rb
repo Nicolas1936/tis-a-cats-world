@@ -117,7 +117,15 @@ array_orgs = [
     is_org: true,
     org_name: "The Lone Whisker",
     address: "45-H, Vrijheidslaan, 1079 KD, Amsterdam, Netherlands",
-    description: "The Lone whisker specialises in international cat adoptions",
+    description: "The Lone Whisker is a world-renowned cat adoption agency that connects feline lovers with their perfect feline companions. From the bustling streets of New York to the rolling hills of the English countryside, we have a wide range of cats available for adoption, each with their own unique personality and charm.
+
+    Our team is dedicated to finding the right fit for both the cats in our care and their potential adopters. We take the time to get to know each of our cats and carefully match them with families who will provide them with the love and attention they deserve.
+
+    At The Lone Whisker, we pride ourselves on being a truly international agency, with connections to cat shelters and rescue organizations across the globe. Whether you're looking for a playful kitten or a more mature feline friend, we have the perfect cat for you.
+
+    In addition to facilitating adoptions, we also provide ongoing support to our adopters. From advice on cat care and behavior to assistance with international travel arrangements for your new feline companion, we are here to make the adoption process as smooth and stress-free as possible.
+
+    Thank you for considering The Lone Whisker for your cat adoption needs. We look forward to helping you find your new feline family member!",
     org_phone_number: "202-555-0180"
   },
   {
@@ -128,7 +136,13 @@ array_orgs = [
     is_org: true,
     org_name: "Sassy Tails",
     address: "500, Moermanskkade, 1013 BC, Amsterdam, Netherlands",
-    description: "Sassy Tails prefers to work with families who are open to adopt senior cats and give them a loving home in their last years",
+    description: "At Sassy Tails, we believe that every cat deserves a happy and fulfilling life, no matter their age. That's why we specialize in matching senior cats with families who are willing to adopt or foster them for the rest of their days.
+
+    Our team is dedicated to finding the perfect fit for both the cats in our care and their potential adopters. We take the time to get to know each of our senior cats and carefully match them with families who will provide them with the love and care they need in their golden years.
+
+    We also, of course, provide advice on senior cat care and will assist with any medical requirements for our senior gentlemen!
+
+    Thank you for considering Sassy Tails for your cat adoption needs. We look forward to helping you find your new feline family member and giving a senior cat the loving home they deserve.",
     org_phone_number: "202-555-0172"
   },
   {
@@ -139,7 +153,13 @@ array_orgs = [
     is_org: true,
     org_name: "Meows and Moos",
     address: "466, Van Reigersbergenstraat, 1052 WE, Amsterdam, Netherlands",
-    description: "We are a non-profit organization that believes in rescuing cats and cows. To date we operate in four cities. We depend solely on the donations of our patrons.",
+    description: "At Meows and Moos, we are dedicated to giving cats and cows in need a second chance at life. As a non-profit organization, we rely on the generous donations of our patrons to fund our rescue and rehabilitation efforts.
+
+    Our team of dedicated volunteers operates in four cities, working tirelessly to rescue cats and cows from abusive or neglectful situations and provide them with the care and attention they need to thrive. We are committed to giving every animal in our care the best possible chance at a happy and healthy life.
+
+    Once an animal is ready for adoption, we take the time to carefully match them with the perfect family. We provide ongoing support to our adopters, including advice on animal care and behavior, to ensure that the transition to their new home is as smooth and stress-free as possible.
+
+    Thank you for considering Meows and Moos for your animal adoption needs. By choosing to adopt or foster one of our rescued cats or cows, you are helping to give an animal in need a loving home and a second chance at life.",
     org_phone_number: "202-555-0124"
   },
   {
@@ -150,7 +170,15 @@ array_orgs = [
     is_org: true,
     org_name: "So FurTunate",
     address: "431, Van Leijenberghlaan, 1082 GL, Amsterdam, Netherlands",
-    description: "I have always loved cats. I seem to not be able to stop bringing them home! I live in a mansion, so I decided that I would open the So FURtunate sanctuary, that way I can just keep having cats forever. This is a privately owned and run sanctuary but we are always happy to receive volunteers!",
+    description: "Sir Isaac Mewton is a private benefactor who has dedicated his life to saving and caring for stray cats. A lifelong feline lover, Sir Isaac opened his mansion to cats in need, creating the So FURtunate sanctuary as a safe haven for felines.
+
+    At So FURtunate, we provide a loving and nurturing environment for stray cats to call home. Our team of dedicated volunteers works tirelessly to provide the best possible care for each and every cat in our care, from medical treatment to daily enrichment activities.
+
+    In addition to providing a home for stray cats, So FURtunate also offers adoption services. We carefully match each of our cats with the perfect family, ensuring that they find a forever home where they will be loved and cared for.
+
+    We are always happy to receive volunteers at So FURtunate. Whether you're an experienced cat lover or simply looking for a way to give back to your community, we welcome your help in caring for the cats in our sanctuary.
+
+    Thank you for considering So FURtunate for your cat adoption needs. By choosing to adopt or volunteer with us, you are helping to give a stray cat a second chance at life and a loving home.",
     org_phone_number: "202-555-0162"
   },
   {
@@ -161,7 +189,13 @@ array_orgs = [
     is_org: true,
     org_name: "Don't worry, be Tabby",
     address: "2, Hekla, 1060 NB, Amsterdam, Netherlands",
-    description: "A very chill adoption agency. We believe that a stress free life is the only life a cat should have. We ourselves live by that rule, so come on in and grab one of those complimentary brownies!",
+    description: "We believe that a stress-free life is the only life a cat should have. That's why we provide a laid-back, Bob Marley-inspired atmosphere for both our cats and their potential adopters. Come on in, grab a complimentary brownie, and take and let the good times roll!
+
+    Our team of chill cat lovers is dedicated to finding the perfect feline companion for each of our adopters. We take the time to get to know each of our cats and carefully match them with families who will provide them with the love and care they deserve.
+
+    In addition to facilitating adoptions, we also provide ongoing support to our adopters. From advice on cat care and behavior to assistance with any medical needs your new feline companion may have, we are here to make the adoption process as smooth and stress-free as possible.
+
+    Thank you for considering Don't Worry, Be tabby for your cat adoption needs. We look forward to helping you find your new feline family member and giving a cat the chill, stress-free life they deserve. So don't worry, be tabby!",
     org_phone_number: "202-555-0116"
   }
 ]
