@@ -51,7 +51,6 @@
 
             <%= link_to "messages", messages_path, class: "dropdown-item" %>
             <%= link_to "profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "edit profile", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "favorites", favorite_path, class: "dropdown-item" %>
             <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
 

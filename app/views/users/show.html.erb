@@ -1,4 +1,5 @@
 
+<%# ORGANIZATION PROFILE START %>
 <%# banner with name and logo - if user is an organization %>
 <% if @user.is_org? %>
   <div class="profile-banner">
@@ -27,17 +28,17 @@
         <p style="margin-bottom: 24px"><%=  @user.description%></p>
 
         <div class="profile-details">
-          <i class="fa-solid fa-location-dot"></i>
+          <i class="fa-solid fa-location-dot" style="color: #BB2684"></i>
           <%= @user.address %>
         </div>
 
         <div class="profile-details">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-solid fa-envelope" style="color: #BB2684"></i>
           <%= @user.email %>
         </div>
 
         <div class="profile-details">
-          <i class="fa-solid fa-phone"></i>
+          <i class="fa-solid fa-phone" style="color: #BB2684"></i>
           <%= @user.org_phone_number %>
         </div>
 
@@ -55,7 +56,7 @@
 
     </div>
 
-
+    <%# organization's cats for adoption %>
     <div class="org-profile-cats">
       <h3>our cats</h3>
       <div class="cards">
@@ -66,34 +67,60 @@
     </div>
 
   </div>
+<%# ORGANIZATION PROFILE END %>
 
 <% else %>
 
+<%# USER PROFILE START %>
   <div class="container">
-    <%= link_to "Add a story", new_user_review_path(@user) %>
-    <p><strong>Testimonials</strong></p>
-    <ul class="list-group">
-      <% @user.reviews.each do |review| %>
-        <li class="list-group-item">
-          <%= review.content %>
-          <%= link_to "Delete",
-            review_path(review),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-        </li>
-      <% end %>
-    </ul>
 
-    <hr>
+    <div class="user-profile-container">
 
-    <p><b>First name :</b> <%= @user.first_name %></p>
-    <p><b>Last name : </b><%= @user.last_name %></p>
-    <p><b>Address : </b><%= @user.address %></p>
-    <% if !@user.photo.key.nil? %>
-      <p><%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :thumb, gravity: :face %></p>
-    <% else %>
-      <p>No Picture!</p>
-    <% end %>
-    <%= link_to "edit", edit_user_path(@user), class: "btn purple-button", style: "width: 100px;" %>
+      <%# profile picture and name %>
+      <div class="user-name-details">
+        <% if !@user.photo.key.nil? %>
+          <%= cl_image_tag @user.photo.key, height: 300, width: 400, class: "avatar-xxl" %>
+        <% else %>
+          <%= image_tag "user.png", height: 300, width: 400, class: "avatar-xxl" %>
+        <% end %>
+
+        <div class="user-first-last-name">
+          <h1><%= @user.first_name %></h1>
+          <h1 style="color: #BB2684"><%= @user.last_name %></h1>
+        </div>
+      </div>
+
+      <hr>
+
+      <%# reviews %>
+      <div class="user-profile-adoption-stories">
+        <p><strong> <%= @user.first_name %>'s adoption stories </strong></p>
+        <ul class="list-group">
+          <% @user.reviews.each do |review| %>
+            <li class="list-group-item" style="border-radius: 8px">
+              <%= review.content %> <br>
+              <%= link_to "Delete",
+                review_path(review),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+              %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <hr>
+
+      <%# useful links - edit - delete- back - add review %>
+      <div class="user-profile-links">
+        <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
+        <%= link_to "edit my profile", edit_user_path(@user), class: "lilac-button" %>
+        <%= link_to "delete my profile", "#", class: "lilac-button" %>
+        <%= link_to "Add a story", new_user_review_path(@user), class: "pink-button" %>
+      </div>
+
+    </div>
+
   </div>
+
 <% end %>
+<%# USER PROFILE END %>

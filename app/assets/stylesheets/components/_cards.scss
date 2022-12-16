@@ -1,3 +1,4 @@
+// all cards on the app
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -9,6 +10,7 @@
   padding: 0;
   list-style: none;
 }
+// cat cards on homepage
 .homepage-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -126,9 +128,12 @@
   }
 }
 
-
+// media queries for responsive design
 @media(max-width: 1024px) {
   .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .homepage-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
@@ -137,10 +142,16 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+  .homepage-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media(max-width: 480px) {
   .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .homepage-cards {
     grid-template-columns: 1fr 1fr;
   }
 }

@@ -3,11 +3,11 @@
   background: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), image-url("tacw_banner3.jpg");
   background-attachment: fixed;
   background-size: contain;
+  background-repeat: no-repeat;
   background-color:$lilac;
 
-  height: 500px;
-  padding: 24px;
-  padding-top: 50px;
+  height: fit-content;
+  padding: 80px 50px 50px 50px;
   margin-bottom: 80px;
   text-align: center;
 
@@ -16,11 +16,11 @@
   align-items: center;
   justify-content: center;
 
-  text-shadow: 3px 3px 16px rgba(0,0,0, 0.8);
-  color: $white;
+  text-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
+  color: $lilac;
 
-  h1 {
-    color: $white;
+  h3 {
+    color: $lilac;
   }
 
   p {
@@ -29,19 +29,22 @@
   }
 }
 
-.homepage-banner-logo {
-  font-size: 88px;
+// LOGO - banner
+.tacw-banner-logo {
+  max-width: 24%;
   margin-bottom: 20px;
-  color: $white;
+  -webkit-filter: drop-shadow(3px 3px 16px rgba(0,0,0, 0.6));
+  filter: drop-shadow(3px 3px 16px rgba(0,0,0, 0.6));
 }
 
-//general banner (TITLE)
+//general banner (TITLE for other pages)
 .banner {
-  background-color:$white;
+  background-color:$lilac;
   height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 64px;
+  margin: 50px 0 64px 0;
+  color: $purple;
 }

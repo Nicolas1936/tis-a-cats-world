@@ -6,15 +6,15 @@
       <% @chatrooms_connected.each do |chatroom| %>
         <div class="message-card">
           <% if @is_org %>
-            <h6><%= link_to chatroom.asker.first_name, messages_path(chatroom_id:chatroom.id) %></h6>
+            <h6><%= link_to chatroom.asker.first_name.upcase, messages_path(chatroom_id:chatroom.id) %></h6>
           <% else %>
-            <h6><%= link_to chatroom.receiver.org_name, messages_path(chatroom_id:chatroom.id) %></h6>
+            <h6><%= link_to chatroom.receiver.org_name.upcase, messages_path(chatroom_id:chatroom.id) %></h6>
           <% end %>
         </div>
       <% end %>
 
     <% else %>
-      <h3>your inbox is empty</h3>
+      <h4 class="empty-inbox-flap">your inbox is empty</h4>
     <% end %>
 
     <%= link_to "< back", 'javascript:history.back()', class: "back-button", id:"chat-back-button" %>
@@ -24,7 +24,9 @@
     <% if @current_chatroom  %>
       <%= render "chatroom", chatroom: @current_chatroom %>
     <% else %>
-      <p>click a chat to display it</p>
+      <h3 class="empty-chatroom" style="font-size: 60px">😶‍🌫️</h3>
+      <h3 class="empty-chatroom">wow, such empty</h3>
+      <h5 class="empty-chatroom">start / select a chat to display it</h5>
     <% end %>
   </div>
 </div>
