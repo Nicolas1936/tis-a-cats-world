@@ -1,4 +1,5 @@
 
+<%# ORGANIZATION PROFILE START %>
 <%# banner with name and logo - if user is an organization %>
 <% if @user.is_org? %>
   <div class="profile-banner">
@@ -55,7 +56,7 @@
 
     </div>
 
-
+    <%# organization's cats for adoption %>
     <div class="org-profile-cats">
       <h3>our cats</h3>
       <div class="cards">
@@ -66,13 +67,16 @@
     </div>
 
   </div>
+<%# ORGANIZATION PROFILE END %>
 
 <% else %>
 
+<%# USER PROFILE START %>
   <div class="container">
 
     <div class="user-profile-container">
 
+      <%# profile picture and name %>
       <div class="user-name-details">
         <% if !@user.photo.key.nil? %>
           <%= cl_image_tag @user.photo.key, height: 300, width: 400, class: "avatar-xxl" %>
@@ -88,6 +92,7 @@
 
       <hr>
 
+      <%# reviews %>
       <div class="user-profile-adoption-stories">
         <p><strong> <%= @user.first_name %>'s adoption stories </strong></p>
         <ul class="list-group">
@@ -105,6 +110,7 @@
 
       <hr>
 
+      <%# useful links - edit - delete- back - add review %>
       <div class="user-profile-links">
         <%= link_to "< back", 'javascript:history.back()', class: "back-button" %>
         <%= link_to "edit my profile", edit_user_path(@user), class: "lilac-button" %>
@@ -117,3 +123,4 @@
   </div>
 
 <% end %>
+<%# USER PROFILE END %>

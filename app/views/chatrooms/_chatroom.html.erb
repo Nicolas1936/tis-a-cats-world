@@ -3,8 +3,7 @@
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>"
   >
-
-    <h3><%= chatroom.receiver.org_name %></h3>
+    <h3>chat with <%= chatroom.receiver.org_name %></h3>
     <div class="messages" data-chatroom-subscription-target="messages">
     <% chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
