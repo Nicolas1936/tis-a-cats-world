@@ -21,6 +21,7 @@ class Cat < ApplicationRecord
   validates :gender, inclusion: { in: %w[male female], message: "must be male or female" }
   validates :coat_colour, presence: true, inclusion: { in: cats_infos["coat_colour"] }
   validates :user_id, presence: true
+  validates :photos, presence: true
 
   include PgSearch::Model
 
