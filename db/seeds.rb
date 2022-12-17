@@ -155,11 +155,11 @@ array_orgs = [
     address: "466, Van Reigersbergenstraat, 1052 WE, Amsterdam, Netherlands",
     description: "At Meows and Moos, we are dedicated to giving cats and cows in need a second chance at life. As a non-profit organization, we rely on the generous donations of our patrons to fund our rescue and rehabilitation efforts.
 
-    Our team of dedicated volunteers operates in four cities, working tirelessly to rescue cats and cows from abusive or neglectful situations and provide them with the care and attention they need to thrive. We are committed to giving every animal in our care the best possible chance at a happy and healthy life.
+Our team of dedicated volunteers operates in four cities, working tirelessly to rescue cats and cows from abusive or neglectful situations and provide them with the care and attention they need to thrive. We are committed to giving every animal in our care the best possible chance at a happy and healthy life.
 
-    Once an animal is ready for adoption, we take the time to carefully match them with the perfect family. We provide ongoing support to our adopters, including advice on animal care and behavior, to ensure that the transition to their new home is as smooth and stress-free as possible.
+Once an animal is ready for adoption, we take the time to carefully match them with the perfect family. We provide ongoing support to our adopters, including advice on animal care and behavior, to ensure that the transition to their new home is as smooth and stress-free as possible.
 
-    Thank you for considering Meows and Moos for your animal adoption needs. By choosing to adopt or foster one of our rescued cats or cows, you are helping to give an animal in need a loving home and a second chance at life.",
+Thank you for considering Meows and Moos for your animal adoption needs. By choosing to adopt or foster one of our rescued cats or cows, you are helping to give an animal in need a loving home and a second chance at life.",
     org_phone_number: "202-555-0124"
   },
   {
